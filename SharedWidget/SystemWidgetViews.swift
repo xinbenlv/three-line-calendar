@@ -63,18 +63,19 @@ struct SystemWidgetView: View {
         case .accessoryInline:
             inline
                 .containerBackground(.clear, for: .widget)
-        // Note: on the home screen the system ALWAYS draws the widget platter —
-        // a .clear container renders identically to .background (verified on the
-        // iOS 26 sim). True transparency only exists for the accessory families.
+        // System families use a material container — the frosted, wallpaper-tinted
+        // look of first-party widgets like Batteries, adapting to light/dark.
+        // (.clear was tested on the iOS 26 sim: the system draws a solid platter
+        // anyway — true transparency only exists for the accessory families.)
         case .systemSmall:
             headered(style: .systemSmall)
-                .containerBackground(.background, for: .widget)
+                .containerBackground(.regularMaterial, for: .widget)
         case .systemLarge:
             headered(style: .systemLarge)
-                .containerBackground(.background, for: .widget)
+                .containerBackground(.regularMaterial, for: .widget)
         default: // .systemMedium
             rows(style: .systemMedium)
-                .containerBackground(.background, for: .widget)
+                .containerBackground(.regularMaterial, for: .widget)
         }
     }
 
