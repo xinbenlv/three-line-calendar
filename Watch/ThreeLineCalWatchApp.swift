@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct zWatchfaceApp: App {
+struct ThreeLineCalWatchApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

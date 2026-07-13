@@ -5,7 +5,7 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 OUT="$ROOT/screenshots"; mkdir -p "$OUT"
-PROJ="$ROOT/zWatchface.xcodeproj"
+PROJ="$ROOT/ThreeLineCal.xcodeproj"
 IPHONE="${IPHONE_SIM:-iPhone 17 Pro Max}"           # 6.9" display (App Store size)
 WATCH="${WATCH_SIM:-Apple Watch Ultra 3 (49mm)}"
 IOS_BID="im.zzn.apps.threelinecal"
@@ -17,12 +17,12 @@ command -v xcodegen >/dev/null 2>&1 && (cd "$ROOT" && xcodegen generate >/dev/nu
 xcodebuild -project "$PROJ" -scheme ThreeLineCal -destination "generic/platform=iOS Simulator" \
   -derivedDataPath "$ROOT/build/dd" CODE_SIGNING_ALLOWED=NO build >/dev/null
 # Watch app: ad-hoc sign so the App Group container provisions on the simulator.
-xcodebuild -project "$PROJ" -scheme zWatchface -destination "generic/platform=watchOS Simulator" \
+xcodebuild -project "$PROJ" -scheme ThreeLineCalWatch -destination "generic/platform=watchOS Simulator" \
   -derivedDataPath "$ROOT/build/ddwatch" CODE_SIGN_STYLE=Manual CODE_SIGN_IDENTITY="-" \
   DEVELOPMENT_TEAM="" PROVISIONING_PROFILE_SPECIFIER="" CODE_SIGNING_REQUIRED=NO \
   CODE_SIGNING_ALLOWED=YES build >/dev/null
 IOS_APP="$(find "$ROOT/build/dd/Build/Products" -name ThreeLineCal.app -maxdepth 3 | head -1)"
-WATCH_APP="$(find "$ROOT/build/ddwatch/Build/Products" -name zWatchface.app -maxdepth 3 | head -1)"
+WATCH_APP="$(find "$ROOT/build/ddwatch/Build/Products" -name ThreeLineCalWatch.app -maxdepth 3 | head -1)"
 
 echo "[2/5] Booting simulators ($IPHONE, $WATCH)..."
 xcrun simctl boot "$IPHONE" 2>/dev/null || true

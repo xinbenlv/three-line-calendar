@@ -50,7 +50,7 @@ struct Provider: TimelineProvider {
     }
 }
 
-struct zWatchfaceComplicationView: View {
+struct ThreeLineCalComplicationView: View {
     var entry: EventEntry
 
     // One row: fixed-width non-truncating time + tail-trimmed title.
@@ -73,7 +73,7 @@ struct zWatchfaceComplicationView: View {
     var body: some View {
         Group {
             if !entry.hasData {
-                message("Open zWatchface to sync")
+                message("Open 3 Line Cal Watch Face to sync")
             } else if entry.events.isEmpty {
                 emptyState
             } else {
@@ -122,12 +122,12 @@ struct zWatchfaceComplicationView: View {
     }
 }
 
-struct zWatchfaceComplication: Widget {
-    let kind = "zWatchfaceComplication"
+struct ThreeLineCalComplication: Widget {
+    let kind = "ThreeLineCalComplication"
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            zWatchfaceComplicationView(entry: entry)
+            ThreeLineCalComplicationView(entry: entry)
         }
         .configurationDisplayName("Next 3 Events")
         .description("Your next three calendar events.")
@@ -137,8 +137,8 @@ struct zWatchfaceComplication: Widget {
 }
 
 @main
-struct zWatchfaceComplicationBundle: WidgetBundle {
+struct ThreeLineCalComplicationBundle: WidgetBundle {
     var body: some Widget {
-        zWatchfaceComplication()
+        ThreeLineCalComplication()
     }
 }

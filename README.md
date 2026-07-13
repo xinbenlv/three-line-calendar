@@ -60,7 +60,7 @@ The Xcode project is generated from `project.yml` with [XcodeGen](https://github
 ```bash
 brew install xcodegen
 xcodegen generate
-open zWatchface.xcodeproj
+open ThreeLineCal.xcodeproj
 ```
 
 Pick the **ThreeLineCal** scheme and run on a paired iPhone + Apple Watch (or the simulators).

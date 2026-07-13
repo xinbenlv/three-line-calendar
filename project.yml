@@ -1,4 +1,4 @@
-name: zWatchface
+name: ThreeLineCal
 options:
   bundleIdPrefix: im.zzn.apps
   createIntermediateGroups: true
@@ -44,11 +44,11 @@ targets:
           - UIInterfaceOrientationLandscapeLeft
           - UIInterfaceOrientationLandscapeRight
     dependencies:
-      - target: zWatchface
+      - target: ThreeLineCalWatch
         embed: true
 
   # watchOS app — embedded in the iOS app
-  zWatchface:
+  ThreeLineCalWatch:
     type: application
     platform: watchOS
     sources:
@@ -58,7 +58,7 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: im.zzn.apps.threelinecal.watchkitapp
         GENERATE_INFOPLIST_FILE: NO
-        CODE_SIGN_ENTITLEMENTS: Watch/zWatchface.entitlements
+        CODE_SIGN_ENTITLEMENTS: Watch/ThreeLineCalWatch.entitlements
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         TARGETED_DEVICE_FAMILY: "4"
     info:
@@ -72,11 +72,11 @@ targets:
         NSCalendarsFullAccessUsageDescription: "3-Line Calendar shows your upcoming calendar events on your watch face."
         NSCalendarsUsageDescription: "3-Line Calendar shows your upcoming calendar events on your watch face."
     dependencies:
-      - target: zWatchfaceComplication
+      - target: ThreeLineCalComplication
         embed: true
 
   # watchOS complication (WidgetKit) — embedded in the watch app
-  zWatchfaceComplication:
+  ThreeLineCalComplication:
     type: app-extension
     platform: watchOS
     sources:
@@ -86,7 +86,7 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: im.zzn.apps.threelinecal.watchkitapp.widget
         GENERATE_INFOPLIST_FILE: NO
-        CODE_SIGN_ENTITLEMENTS: Complication/zWatchfaceComplication.entitlements
+        CODE_SIGN_ENTITLEMENTS: Complication/ThreeLineCalComplication.entitlements
         TARGETED_DEVICE_FAMILY: "4"
     info:
       path: Complication/Info.plist
