@@ -65,6 +65,7 @@ targets:
         CFBundleShortVersionString: "$(MARKETING_VERSION)"
         CFBundleIconName: AppIcon
         CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        ITSAppUsesNonExemptEncryption: false
         NSCalendarsFullAccessUsageDescription: "3-Line Calendar shows your upcoming calendar events in the app and its widgets."
         NSCalendarsUsageDescription: "3-Line Calendar shows your upcoming calendar events in the app and its widgets."
         UILaunchScreen: {}
@@ -104,6 +105,7 @@ targets:
         CFBundleShortVersionString: "$(MARKETING_VERSION)"
         CFBundleIconName: AppIcon
         CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        ITSAppUsesNonExemptEncryption: false
         WKApplication: true
         WKCompanionAppBundleIdentifier: im.zzn.apps.threelinecal
         NSCalendarsFullAccessUsageDescription: "3-Line Calendar shows your upcoming calendar events on your watch face."
@@ -159,6 +161,7 @@ targets:
         CFBundleShortVersionString: "$(MARKETING_VERSION)"
         CFBundleIconName: AppIcon
         CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        ITSAppUsesNonExemptEncryption: false
         LSApplicationCategoryType: public.app-category.productivity
         NSHumanReadableCopyright: "© 2026 Z. Victor Zhou"
         NSCalendarsFullAccessUsageDescription: "3-Line Calendar shows your upcoming calendar events in the app and its widgets."
