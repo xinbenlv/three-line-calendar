@@ -37,11 +37,16 @@ struct Provider: TimelineProvider {
     }
 
     private func makeEntry(for date: Date) -> EventEntry {
-        let all = AppGroup.loadSnapshot()
+        var all = AppGroup.loadSnapshot()
+        #if DEBUG
+        // Screenshot aid (Debug only, never ships): fall back to demo events when the
+        // simulator has no synced calendar, so the complication renders real-looking data.
+        if all.todaysNext(3, now: date).isEmpty { all = EventItem.demo(from: date) }
+        #endif
         return EventEntry(date: date,
                           events: all.todaysNext(3, now: date),
                           nextEventStart: all.nextUpcomingStart(now: date),
-                          hasData: AppGroup.hasSnapshot)
+                          hasData: AppGroup.hasSnapshot || !all.isEmpty)
     }
 }
 
