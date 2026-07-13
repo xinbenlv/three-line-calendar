@@ -1,0 +1,4 @@
+• Widżety dla iPhone'a, iPada i Maca — ekran główny, ekran blokady i biurko
+• Przetłumaczono na 20 nowych języków
+• Godziny są teraz zgodne z ustawieniem 12/24 h Twojego regionu
+• Nowa aplikacja na Maca z podglądem widżetu na żywo

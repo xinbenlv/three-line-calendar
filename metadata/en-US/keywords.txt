@@ -1,0 +1,1 @@
+calendar,widget,watch face,complication,agenda,events,today,schedule,lock screen,minimal

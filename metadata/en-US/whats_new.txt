@@ -1,0 +1,4 @@
+• Widgets for iPhone, iPad and Mac — Home Screen, Lock Screen and desktop
+• Translated into 20 new languages
+• Times now follow your region's 12/24-hour setting
+• New Mac app with a live widget preview

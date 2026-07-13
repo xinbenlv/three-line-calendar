@@ -5,9 +5,12 @@ Reads credentials from .creds/asc.env (gitignored). Requires PyJWT + Pillow:
     pip install PyJWT cryptography Pillow
 
 Maps:
-    screenshots/iphone-companion.png -> APP_IPHONE_67  (6.9"/6.7")
-    screenshots/watch-app.png        -> APP_WATCH_ULTRA (410x502)
-Existing screenshots in each set are replaced.
+    screenshots/iphone-companion.png -> APP_IPHONE_67        (6.9"/6.7", iOS version)
+    screenshots/ipad-companion.png   -> APP_IPAD_PRO_3GEN_129 (13",       iOS version)
+    screenshots/watch-app.png        -> APP_WATCH_ULTRA       (410x502,   iOS version)
+    screenshots/mac-app.png          -> APP_DESKTOP           (2560x1600, macOS version)
+Existing screenshots in each set are replaced. The mac window capture is letterboxed
+onto the required 16:10 canvas.
 """
 import os, re, sys, json, time, hashlib, urllib.request, urllib.error
 import jwt
@@ -32,10 +35,12 @@ KEY = open(os.path.join(ROOT, ".creds", f"AuthKey_{KEY_ID}.p8")).read()
 BUNDLE = ENV.get("ZWF_APP_BUNDLE_ID", "im.zzn.apps.threelinecal")
 BASE = "https://api.appstoreconnect.apple.com"
 
-# displayType -> list of accepted (w,h); first is the resize target
+# filename -> (ASC platform, displayType, accepted (w,h) list; first is the resize target)
 SPECS = {
-    "iphone-companion.png": ("APP_IPHONE_67", [(1320, 2868), (1290, 2796)]),
-    "watch-app.png":        ("APP_WATCH_ULTRA", [(410, 502)]),
+    "iphone-companion.png": ("IOS", "APP_IPHONE_67", [(1320, 2868), (1290, 2796)]),
+    "ipad-companion.png":   ("IOS", "APP_IPAD_PRO_3GEN_129", [(2064, 2752), (2048, 2732)]),
+    "watch-app.png":        ("IOS", "APP_WATCH_ULTRA", [(410, 502)]),
+    "mac-app.png":          ("MAC_OS", "APP_DESKTOP", [(2560, 1600), (1280, 800)]),
 }
 
 
@@ -63,8 +68,18 @@ def normalize(path, accepted):
         return path
     target = accepted[0]
     out = path.replace(".png", f".{target[0]}x{target[1]}.png")
-    img.resize(target, Image.LANCZOS).save(out)
-    print(f"  resized {img.size} -> {target}")
+    src_ratio, dst_ratio = img.width / img.height, target[0] / target[1]
+    if abs(src_ratio - dst_ratio) / dst_ratio > 0.02:
+        # Aspect mismatch (e.g. the mac window capture): letterbox onto the canvas.
+        scale = min(target[0] / img.width, target[1] / img.height) * 0.92
+        inner = img.resize((int(img.width * scale), int(img.height * scale)), Image.LANCZOS)
+        canvas = Image.new("RGB", target, (28, 28, 30))
+        canvas.paste(inner, ((target[0] - inner.width) // 2, (target[1] - inner.height) // 2))
+        canvas.save(out)
+        print(f"  composed {img.size} onto {target}")
+    else:
+        img.resize(target, Image.LANCZOS).save(out)
+        print(f"  resized {img.size} -> {target}")
     return out
 
 
@@ -87,18 +102,30 @@ def upload_one(setid, path):
     return bool(c)
 
 
+def localization_for(app, platform):
+    """en-US localization id of the newest version for the platform, or None."""
+    vers = [v for v in api(f"/v1/apps/{app}/appStoreVersions")["data"]
+            if v["attributes"]["platform"] == platform]
+    if not vers:
+        return None
+    locs = api(f"/v1/appStoreVersions/{vers[0]['id']}/appStoreVersionLocalizations")["data"]
+    return next((l["id"] for l in locs if l["attributes"]["locale"] == "en-US"), None)
+
+
 def main():
     app = api(f"/v1/apps?filter[bundleId]={BUNDLE}")["data"][0]["id"]
-    ver = [v for v in api(f"/v1/apps/{app}/appStoreVersions")["data"]
-           if v["attributes"]["platform"] == "IOS"][0]["id"]
-    lid = [l for l in api(f"/v1/appStoreVersions/{ver}/appStoreVersionLocalizations")["data"]
-           if l["attributes"]["locale"] == "en-US"][0]["id"]
-    sets = {s["attributes"]["screenshotDisplayType"]: s["id"]
-            for s in api(f"/v1/appStoreVersionLocalizations/{lid}/appScreenshotSets")["data"]}
-    for fname, (dtype, accepted) in SPECS.items():
+    lids = {}  # platform -> en-US localization id
+    for fname, (platform, dtype, accepted) in SPECS.items():
         path = os.path.join(ROOT, "screenshots", fname)
         if not os.path.exists(path):
             print(f"skip {fname} (not found)"); continue
+        if platform not in lids:
+            lids[platform] = localization_for(app, platform)
+        lid = lids[platform]
+        if not lid:
+            print(f"skip {fname} (no {platform} version in ASC yet)"); continue
+        sets = {s["attributes"]["screenshotDisplayType"]: s["id"]
+                for s in api(f"/v1/appStoreVersionLocalizations/{lid}/appScreenshotSets")["data"]}
         setid = sets.get(dtype) or api("/v1/appScreenshotSets", "POST", {"data": {"type": "appScreenshotSets",
                 "attributes": {"screenshotDisplayType": dtype},
                 "relationships": {"appStoreVersionLocalization": {"data": {"type": "appStoreVersionLocalizations", "id": lid}}}}})["data"]["id"]

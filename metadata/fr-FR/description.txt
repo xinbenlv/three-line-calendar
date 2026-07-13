@@ -1,0 +1,19 @@
+Vos trois prochains événements de calendrier, toujours sous les yeux : sur le cadran de votre Apple Watch, sur l'écran d'accueil et l'écran verrouillé de votre iPhone ou iPad, et sur le bureau de votre Mac.
+
+Calendrier 3L fait une seule chose, et la fait bien : afficher les trois prochains événements horodatés de votre journée en trois lignes nettes — heure et titre. Rien de plus.
+
+DES WIDGETS PARTOUT
+• Apple Watch : la complication 3 lignes originale pour le cadran
+• iPhone et iPad : widgets d'écran d'accueil (petit, moyen) et d'écran verrouillé
+• Mac : widgets de bureau (petit, moyen, grand)
+
+SANS ARNAQUE
+• Gratuit. Pas d'achats intégrés. Pas de frais cachés.
+• Pas de compte. Pas de connexion.
+• Pas de pub. Pas de pistage. Aucune requête réseau.
+• Open source (Apache-2.0).
+
+COMMENT ÇA MARCHE
+Les événements sont lus via EventKit d'Apple : tous les calendriers de votre appareil apparaissent — y compris Google Agenda et tout autre compte ajouté. Les événements sur une journée entière ou plusieurs jours sont volontairement ignorés : vous ne voyez que les événements horodatés qui rythment votre journée. Quand la journée est finie, un compte à rebours indique votre prochain événement.
+
+Désormais en 21 langues.

@@ -1,0 +1,19 @@
+Tiga acara kalender Anda berikutnya, selalu terlihat sekilas — di permukaan jam Apple Watch, di Layar Utama dan Layar Kunci iPhone atau iPad, serta di desktop Mac.
+
+Aplikasi ini melakukan satu hal dengan baik: menampilkan tiga acara berjadwal berikutnya dalam tiga baris bersih — waktu dan judul. Tidak ada yang lain.
+
+WIDGET DI MANA-MANA
+• Apple Watch: komplikasi 3 baris orisinal untuk permukaan jam
+• iPhone & iPad: widget Layar Utama (kecil, sedang) dan widget Layar Kunci
+• Mac: widget desktop (kecil, sedang, besar)
+
+TANPA MACAM-MACAM
+• Gratis. Tanpa pembelian dalam aplikasi. Tanpa biaya tersembunyi.
+• Tanpa akun. Tanpa masuk.
+• Tanpa iklan. Tanpa pelacakan. Tanpa permintaan jaringan.
+• Sumber terbuka (Apache-2.0).
+
+CARA KERJANYA
+Acara dibaca lewat EventKit milik Apple, jadi semua kalender di perangkat Anda muncul — termasuk Google Calendar dan akun lain yang Anda tambahkan. Acara sepanjang hari dan multi-hari sengaja dilewati: Anda hanya melihat acara berjadwal yang membentuk hari Anda. Saat hari ini selesai, hitung mundur menuju acara berikutnya ditampilkan.
+
+Kini dalam 21 bahasa.

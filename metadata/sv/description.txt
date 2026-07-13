@@ -1,0 +1,19 @@
+Dina nästa tre kalenderhändelser, alltid inom synhåll — på Apple Watch-urtavlan, på iPhonens eller iPadens hemskärm och låsskärm, och på Macens skrivbord.
+
+Appen gör en sak, och gör den bra: visar dagens nästa tre tidsatta händelser som tre rena rader — tid och titel. Inget annat.
+
+WIDGETAR ÖVERALLT
+• Apple Watch: den ursprungliga 3-raderskomplikationen för urtavlan
+• iPhone & iPad: hemskärmswidgetar (liten, mellan) och låsskärmswidgetar
+• Mac: skrivbordswidgetar (liten, mellan, stor)
+
+INGET TRAMS
+• Gratis. Inga köp i appen. Inga dolda avgifter.
+• Inget konto. Ingen inloggning.
+• Inga annonser. Ingen spårning. Inga nätverksanrop.
+• Öppen källkod (Apache-2.0).
+
+SÅ FUNKAR DET
+Händelser läses via Apples EventKit, så alla kalendrar på enheten visas — inklusive Google Kalender och andra konton du lagt till. Heldags- och flerdagshändelser hoppas över med flit: du ser bara de tidsatta händelser som formar din dag. När dagen är slut visas en nedräkning till nästa händelse.
+
+Nu på 21 språk.

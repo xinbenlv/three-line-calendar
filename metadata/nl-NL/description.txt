@@ -1,0 +1,19 @@
+Je volgende drie agenda-afspraken, altijd in beeld — op de wijzerplaat van je Apple Watch, op het begin- en vergrendelscherm van je iPhone of iPad en op het bureaublad van je Mac.
+
+Deze app doet één ding goed: de volgende drie afspraken van je dag tonen als drie strakke regels — tijd en titel. Meer niet.
+
+OVERAL WIDGETS
+• Apple Watch: de originele 3-regelcomplicatie voor de wijzerplaat
+• iPhone & iPad: beginschermwidgets (klein, middel) en vergrendelschermwidgets
+• Mac: bureaubladwidgets (klein, middel, groot)
+
+GEEN GEDOE
+• Gratis. Geen in-app-aankopen. Geen verborgen kosten.
+• Geen account. Geen inloggen.
+• Geen advertenties. Geen tracking. Geen netwerkverzoeken.
+• Open source (Apache-2.0).
+
+ZO WERKT HET
+Afspraken worden gelezen via Apples EventKit, dus alle agenda's op je apparaat verschijnen — inclusief Google Agenda en elk ander toegevoegd account. Afspraken van een hele dag of meerdere dagen worden bewust overgeslagen: je ziet alleen de afspraken met een tijd die je dag bepalen. Is de dag voorbij, dan zie je een aftelling naar je volgende afspraak.
+
+Nu in 21 talen.

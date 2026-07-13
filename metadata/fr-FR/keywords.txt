@@ -1,0 +1,1 @@
+calendrier,widget,cadran,complication,agenda,événements,aujourd'hui,horaire,écran verrouillé

@@ -1,0 +1,4 @@
+• Widgets para iPhone, iPad y Mac: pantalla de inicio, pantalla de bloqueo y escritorio
+• Traducido a 20 nuevos idiomas
+• La hora sigue el formato 12/24 h de tu región
+• Nueva app para Mac con vista previa del widget

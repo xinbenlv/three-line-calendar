@@ -1,0 +1,19 @@
+Tus próximos tres eventos del calendario, siempre a la vista: en la esfera de tu Apple Watch, en la pantalla de inicio y de bloqueo de tu iPhone o iPad, y en el escritorio de tu Mac.
+
+Calendario 3L hace una sola cosa, y la hace bien: muestra los próximos tres eventos con hora de tu día en tres líneas limpias — hora y título. Nada más.
+
+WIDGETS EN TODAS PARTES
+• Apple Watch: la complicación original de 3 líneas para la esfera
+• iPhone y iPad: widgets de pantalla de inicio (pequeño, mediano) y de pantalla de bloqueo
+• Mac: widgets de escritorio (pequeño, mediano, grande)
+
+SIN TRUCOS
+• Gratis. Sin compras dentro de la app. Sin cargos ocultos.
+• Sin cuenta. Sin inicio de sesión.
+• Sin anuncios. Sin rastreo. Sin conexiones de red.
+• Código abierto (Apache-2.0).
+
+CÓMO FUNCIONA
+Los eventos se leen mediante EventKit de Apple, así que aparecen todos los calendarios de tu dispositivo — incluido Google Calendar y cualquier otra cuenta que hayas añadido. Los eventos de todo el día y de varios días se omiten a propósito: solo ves los eventos con hora que dan forma a tu día. Cuando termina el día, verás una cuenta atrás hasta tu próximo evento.
+
+Ahora en 21 idiomas.

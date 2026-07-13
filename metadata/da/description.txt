@@ -1,0 +1,19 @@
+Dine næste tre kalenderbegivenheder, altid lige ved hånden — på Apple Watch-urskiven, på iPhonens eller iPadens hjemmeskærm og låseskærm, og på Macens skrivebord.
+
+Appen gør én ting, og gør den godt: viser dagens næste tre tidsfastsatte begivenheder som tre rene linjer — tid og titel. Intet andet.
+
+WIDGETS OVERALT
+• Apple Watch: den originale 3-linjers komplikation til urskiven
+• iPhone & iPad: hjemmeskærmswidgets (lille, mellem) og låseskærmswidgets
+• Mac: skrivebordswidgets (lille, mellem, stor)
+
+INGEN NUMRE
+• Gratis. Ingen køb i appen. Ingen skjulte gebyrer.
+• Ingen konto. Intet login.
+• Ingen reklamer. Ingen sporing. Ingen netværksforespørgsler.
+• Open source (Apache-2.0).
+
+SÅDAN VIRKER DET
+Begivenheder læses via Apples EventKit, så alle kalendere på din enhed vises — inklusive Google Kalender og andre konti, du har tilføjet. Heldags- og flerdagsbegivenheder springes bevidst over: du ser kun de tidsfastsatte begivenheder, der former din dag. Når dagen er slut, vises en nedtælling til din næste begivenhed.
+
+Nu på 21 sprog.

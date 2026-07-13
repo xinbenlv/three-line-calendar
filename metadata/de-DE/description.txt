@@ -1,0 +1,19 @@
+Deine nächsten drei Kalendertermine, immer im Blick — auf dem Zifferblatt deiner Apple Watch, auf dem Home- und Sperrbildschirm von iPhone oder iPad und auf dem Mac-Schreibtisch.
+
+Der 3-Zeilen-Kalender macht eine Sache richtig gut: Er zeigt die nächsten drei Termine deines Tages als drei klare Zeilen — Uhrzeit und Titel. Sonst nichts.
+
+WIDGETS ÜBERALL
+• Apple Watch: die originale 3-Zeilen-Komplikation fürs Zifferblatt
+• iPhone & iPad: Home-Bildschirm-Widgets (klein, mittel) und Sperrbildschirm-Widgets
+• Mac: Schreibtisch-Widgets (klein, mittel, groß)
+
+OHNE HAKEN
+• Kostenlos. Keine In-App-Käufe. Keine versteckten Kosten.
+• Kein Konto. Keine Anmeldung.
+• Keine Werbung. Kein Tracking. Keine Netzwerkzugriffe.
+• Open Source (Apache-2.0).
+
+SO FUNKTIONIERT'S
+Termine werden über Apples EventKit gelesen — es erscheinen also alle Kalender deines Geräts, einschließlich Google Kalender und aller anderen hinzugefügten Konten. Ganztägige und mehrtägige Termine werden bewusst übersprungen: Du siehst nur die Termine mit Uhrzeit, die deinen Tag prägen. Ist der Tag vorbei, zählt ein Countdown bis zu deinem nächsten Termin.
+
+Jetzt in 21 Sprachen.

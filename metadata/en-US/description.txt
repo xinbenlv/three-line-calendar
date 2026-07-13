@@ -1,0 +1,19 @@
+Your next three calendar events, always at a glance — on your Apple Watch face, your iPhone or iPad Home Screen and Lock Screen, and your Mac desktop.
+
+3-Line Calendar does one thing well: it shows the next three timed events of your day as three clean lines — time and title. Nothing else.
+
+WIDGETS EVERYWHERE
+• Apple Watch: the original 3-line watch-face complication
+• iPhone & iPad: Home Screen widgets (small, medium) and Lock Screen widgets
+• Mac: desktop widgets (small, medium, large)
+
+NO BS
+• Free. No in-app purchases. No hidden charges.
+• No account. No sign-in.
+• No ads. No tracking. No network requests.
+• Open source (Apache-2.0).
+
+HOW IT WORKS
+Events are read through Apple's EventKit, so every calendar on your device shows up — including Google Calendar and any other account you've added. All-day and multi-day events are skipped on purpose: you only see the timed events that shape your day. When today is done, you get a countdown to your next event.
+
+Now in 21 languages.

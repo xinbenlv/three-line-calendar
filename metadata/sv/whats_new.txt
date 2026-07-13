@@ -1,0 +1,4 @@
+• Widgetar för iPhone, iPad och Mac — hemskärm, låsskärm och skrivbord
+• Översatt till 20 nya språk
+• Tider följer nu regionens 12/24-timmarsinställning
+• Ny Mac-app med live-förhandsvisning av widgeten

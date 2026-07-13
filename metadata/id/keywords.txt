@@ -1,0 +1,1 @@
+kalender,widget,tampilan jam,acara,hari ini,jadwal,layar kunci,minimalis

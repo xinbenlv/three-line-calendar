@@ -1,0 +1,1 @@
+calendario,widget,esfera,complicación,agenda,eventos,hoy,horario,pantalla bloqueo,minimal

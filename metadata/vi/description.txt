@@ -1,0 +1,19 @@
+Ba sự kiện lịch tiếp theo của bạn, luôn trong tầm mắt — trên mặt đồng hồ Apple Watch, trên Màn hình chính và Màn hình khóa của iPhone hoặc iPad, và trên màn hình nền máy Mac.
+
+Ứng dụng này chỉ làm một việc và làm tốt: hiển thị ba sự kiện có giờ tiếp theo trong ngày thành ba dòng gọn gàng — giờ và tiêu đề. Không gì khác.
+
+TIỆN ÍCH Ở KHẮP NƠI
+• Apple Watch: tiện ích mặt đồng hồ 3 dòng nguyên bản
+• iPhone & iPad: tiện ích Màn hình chính (nhỏ, vừa) và Màn hình khóa
+• Mac: tiện ích màn hình nền (nhỏ, vừa, lớn)
+
+KHÔNG CHIÊU TRÒ
+• Miễn phí. Không mua trong ứng dụng. Không phí ẩn.
+• Không cần tài khoản. Không cần đăng nhập.
+• Không quảng cáo. Không theo dõi. Không kết nối mạng.
+• Mã nguồn mở (Apache-2.0).
+
+CÁCH HOẠT ĐỘNG
+Sự kiện được đọc qua EventKit của Apple, nên mọi lịch trên thiết bị đều hiển thị — bao gồm Google Calendar và bất kỳ tài khoản nào bạn đã thêm. Sự kiện cả ngày và nhiều ngày được bỏ qua có chủ đích: bạn chỉ thấy những sự kiện có giờ định hình ngày của bạn. Khi hết ngày, ứng dụng hiển thị đếm ngược đến sự kiện tiếp theo.
+
+Nay có 21 ngôn ngữ.

@@ -1,0 +1,19 @@
+I tuoi prossimi tre eventi del calendario, sempre a colpo d'occhio: sul quadrante dell'Apple Watch, sulla schermata Home e di blocco di iPhone o iPad e sulla scrivania del Mac.
+
+Calendario 3 righe fa una cosa sola, e la fa bene: mostra i prossimi tre eventi con orario della tua giornata in tre righe pulite — ora e titolo. Nient'altro.
+
+WIDGET OVUNQUE
+• Apple Watch: la complicazione originale a 3 righe per il quadrante
+• iPhone e iPad: widget della schermata Home (piccolo, medio) e della schermata di blocco
+• Mac: widget della scrivania (piccolo, medio, grande)
+
+SENZA FREGATURE
+• Gratis. Nessun acquisto in-app. Nessun costo nascosto.
+• Nessun account. Nessun accesso.
+• Niente pubblicità. Niente tracciamento. Nessuna richiesta di rete.
+• Open source (Apache-2.0).
+
+COME FUNZIONA
+Gli eventi vengono letti tramite EventKit di Apple, quindi compaiono tutti i calendari del tuo dispositivo — incluso Google Calendar e qualsiasi altro account aggiunto. Gli eventi di un giorno intero o di più giorni vengono saltati di proposito: vedi solo gli eventi con orario che danno forma alla tua giornata. A fine giornata, un conto alla rovescia indica il prossimo evento.
+
+Ora in 21 lingue.

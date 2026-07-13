@@ -1,0 +1,19 @@
+Sıradaki üç takvim etkinliğiniz, her zaman göz önünde — Apple Watch kadranında, iPhone veya iPad'in Ana Ekranı ile Kilit Ekranında ve Mac masaüstünde.
+
+Bu uygulama tek bir işi iyi yapar: Gününüzün sıradaki üç saatli etkinliğini üç temiz satırda gösterir — saat ve başlık. Başka hiçbir şey yok.
+
+HER YERDE WIDGET
+• Apple Watch: orijinal 3 satırlık kadran komplikasyonu
+• iPhone ve iPad: Ana Ekran widget'ları (küçük, orta) ve Kilit Ekranı widget'ları
+• Mac: masaüstü widget'ları (küçük, orta, büyük)
+
+NUMARASIZ
+• Ücretsiz. Uygulama içi satın alma yok. Gizli ücret yok.
+• Hesap yok. Oturum açma yok.
+• Reklam yok. İzleme yok. Ağ isteği yok.
+• Açık kaynak (Apache-2.0).
+
+NASIL ÇALIŞIR
+Etkinlikler Apple'ın EventKit'i üzerinden okunur; bu yüzden cihazınızdaki tüm takvimler görünür — Google Takvim ve eklediğiniz diğer hesaplar dahil. Tüm gün süren ve çok günlük etkinlikler bilerek atlanır: yalnızca gününüzü şekillendiren saatli etkinlikleri görürsünüz. Gün bittiğinde, bir sonraki etkinliğinize geri sayım gösterilir.
+
+Artık 21 dilde.

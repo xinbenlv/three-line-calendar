@@ -1,0 +1,19 @@
+Trzy najbliższe wydarzenia z kalendarza, zawsze w zasięgu wzroku — na tarczy Apple Watch, na ekranie głównym i ekranie blokady iPhone'a lub iPada oraz na biurku Maca.
+
+Ta aplikacja robi jedną rzecz, ale dobrze: pokazuje trzy najbliższe wydarzenia dnia w trzech czystych wierszach — godzina i tytuł. Nic więcej.
+
+WIDŻETY WSZĘDZIE
+• Apple Watch: oryginalna 3-wierszowa komplikacja tarczy
+• iPhone i iPad: widżety ekranu głównego (mały, średni) i ekranu blokady
+• Mac: widżety na biurku (mały, średni, duży)
+
+BEZ KRUCZKÓW
+• Za darmo. Bez zakupów w aplikacji. Bez ukrytych opłat.
+• Bez konta. Bez logowania.
+• Bez reklam. Bez śledzenia. Bez połączeń sieciowych.
+• Otwarty kod (Apache-2.0).
+
+JAK TO DZIAŁA
+Wydarzenia są odczytywane przez EventKit Apple, więc widoczne są wszystkie kalendarze na urządzeniu — w tym Kalendarz Google i inne dodane konta. Wydarzenia całodniowe i wielodniowe są celowo pomijane: widzisz tylko wydarzenia z godziną, które kształtują Twój dzień. Gdy dzień się kończy, pojawia się odliczanie do następnego wydarzenia.
+
+Teraz w 21 językach.
