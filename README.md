@@ -5,6 +5,21 @@
 A clean rectangular complication that shows your next three events of the day — each as
 `time · title` — so you always know what's next at a glance, without opening an app.
 
+## Screenshots
+
+<p align="center">
+  <img src="screenshots/watch-face-ultra.png" width="220" alt="Complication on the Apple Watch Ultra face">
+  &nbsp;&nbsp;
+  <img src="screenshots/watch-face-modular.png" width="220" alt="Complication on a modular watch face">
+</p>
+<p align="center"><em>The “Next 3 Events” complication on built-in watch faces.</em></p>
+
+<p align="center">
+  <img src="screenshots/watch-app.png" width="200" alt="In-app list of upcoming events">
+  &nbsp;&nbsp;
+  <img src="screenshots/watch-app-list.png" width="200" alt="App icon in the watch app list">
+</p>
+
 ## No BS
 
 I got sick and tired of apps that nag, upsell, and harvest your data. So I built the one I
