@@ -25,7 +25,8 @@ A clean rectangular complication that shows your next three events of the day �
 I got sick and tired of apps that nag, upsell, and harvest your data. So I built the one I
 actually want to use — and I'm giving it away.
 
-- 💯 **Completely free** — no charge, no hidden charges, no in-app purchases, no premium tier
+- 💯 **Completely free** — no charge, no hidden charges, no premium tier
+- 🛒 **No in-app purchases** — nothing to unlock, no consumables, no upsells
 - 🔑 **No account, no sign-in** — just install and go
 - 🚫 **No ads** — ever
 - 🕵️ **No tracking, no analytics** — the app makes no network requests to send your data anywhere
