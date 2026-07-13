@@ -57,7 +57,7 @@ struct ThreeLineCalComplicationView: View {
     // Title truncates with "…" at a constant size — we do NOT shrink the font to fit.
     private func row(_ e: EventItem) -> some View {
         HStack(alignment: .firstTextBaseline, spacing: 5) {
-            Text(e.timeString)
+            Text(e.timeStringCompact)
                 .font(.system(size: 20, weight: .semibold))
                 .monospacedDigit()
                 .foregroundStyle(.secondary)
@@ -87,12 +87,13 @@ struct ThreeLineCalComplicationView: View {
     }
 
     // Centered empty state. If there's a later event, show a "… until next" countdown.
+    // The relative-style Text is locale-aware and live-updates on its own between entries.
     private var emptyState: some View {
         VStack(spacing: 3) {
             if let next = entry.nextEventStart {
                 Text("No events today")
                     .font(.system(size: 15, weight: .semibold))
-                Text("\(countdown(from: entry.date, to: next)) until next")
+                Text("\(Text(next, style: .relative)) until next")
                     .font(.system(size: 13))
                     .foregroundStyle(.secondary)
             } else {
@@ -105,15 +106,7 @@ struct ThreeLineCalComplicationView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
     }
 
-    // "45m" / "35h" / "3d" — coarse, refreshed by the timeline at least every 30 min.
-    private func countdown(from: Date, to: Date) -> String {
-        let mins = max(0, Int(to.timeIntervalSince(from) / 60))
-        if mins < 60 { return "\(mins)m" }
-        let hours = mins / 60
-        return hours < 48 ? "\(hours)h" : "\(hours / 24)d"
-    }
-
-    private func message(_ text: String) -> some View {
+    private func message(_ text: LocalizedStringKey) -> some View {
         Text(text)
             .font(.system(size: 15))
             .foregroundStyle(.secondary)

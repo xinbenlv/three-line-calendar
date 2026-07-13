@@ -44,7 +44,8 @@ final class CalendarStore {
             }
             .sorted { $0.startDate < $1.startDate }
             .map { EventItem(id: $0.eventIdentifier ?? UUID().uuidString,
-                             title: ($0.title?.isEmpty == false ? $0.title! : "(No title)"),
+                             title: ($0.title?.isEmpty == false ? $0.title!
+                                                                : String(localized: "(No title)")),
                              start: $0.startDate,
                              end: $0.endDate) }
     }

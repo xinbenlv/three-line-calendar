@@ -19,7 +19,9 @@ struct SettingsView: View {
                 }
             }
 
+            #if DEBUG
             // Simulator has no Google account synced, so seed test events to demo the UI.
+            // Debug-only: real users should never write fake events into their widget.
             Section("Testing") {
                 Button("Insert sample events") { insertSamples() }
                 Button("Remove sample events", role: .destructive) { removeSamples() }
@@ -27,6 +29,7 @@ struct SettingsView: View {
                     Text(message).font(.footnote).foregroundStyle(.secondary)
                 }
             }
+            #endif
         }
         .navigationTitle("Settings")
         .task { load() }
@@ -52,17 +55,19 @@ struct SettingsView: View {
         }
     }
 
+    #if DEBUG
     // watchOS EventKit is read-only (no save/remove), and the simulator has no Google account
     // synced. So we seed the shared snapshot directly — that's exactly what the complication reads.
     private func insertSamples() {
         AppGroup.saveSnapshot(EventItem.demo(from: Date()))
         WidgetCenter.shared.reloadAllTimelines()
-        message = "Seeded 3 sample events."
+        message = String(localized: "Seeded 3 sample events.")
     }
 
     private func removeSamples() {
         AppGroup.saveSnapshot([])
         WidgetCenter.shared.reloadAllTimelines()
-        message = "Cleared sample events."
+        message = String(localized: "Cleared sample events.")
     }
+    #endif
 }

@@ -7,12 +7,15 @@ struct EventItem: Identifiable, Hashable, Codable {
     let start: Date
     let end: Date
 
-    /// 24-hour `HH:mm` — matches the sketch (10:00 / 14:00).
+    /// Start time in the user's locale and 12/24-hour preference, e.g. "10:00" / "10:00 AM".
     var timeString: String {
-        let f = DateFormatter()
-        f.locale = Locale(identifier: "en_US_POSIX")
-        f.dateFormat = "HH:mm"
-        return f.string(from: start)
+        start.formatted(date: .omitted, time: .shortened)
+    }
+
+    /// Compact start time for space-tight faces: narrow day period ("9:41 a" instead of
+    /// "9:41 AM") so the title keeps its width; 24-hour locales are unaffected.
+    var timeStringCompact: String {
+        start.formatted(.dateTime.hour(.defaultDigits(amPM: .narrow)).minute(.twoDigits))
     }
 }
 
@@ -46,9 +49,9 @@ extension EventItem {
                              start: s, end: s.addingTimeInterval(TimeInterval(durMin * 60)))
         }
         return [
-            ev("1", "Standup", startMin: 15, durMin: 15),
-            ev("2", "1:1 with Sam", startMin: 90, durMin: 30),
-            ev("3", "Design review with the platform team about onboarding",
+            ev("1", String(localized: "Standup"), startMin: 15, durMin: 15),
+            ev("2", String(localized: "1:1 with Sam"), startMin: 90, durMin: 30),
+            ev("3", String(localized: "Design review with the platform team about onboarding"),
                startMin: 180, durMin: 60),
         ]
     }

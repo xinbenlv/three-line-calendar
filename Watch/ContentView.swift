@@ -13,12 +13,16 @@ struct ContentView: View {
                         .font(.footnote)
                 }
                 if events.isEmpty {
-                    Text(authorized ? "No upcoming events today." : "No cached events yet.")
-                        .foregroundStyle(.secondary)
+                    // Two literals (not a String ternary) so both keys localize.
+                    if authorized {
+                        Text("No upcoming events today.").foregroundStyle(.secondary)
+                    } else {
+                        Text("No cached events yet.").foregroundStyle(.secondary)
+                    }
                 } else {
                     ForEach(events) { e in
                         HStack(alignment: .firstTextBaseline, spacing: 6) {
-                            Text(e.timeString)
+                            Text(e.timeStringCompact)
                                 .monospacedDigit()
                                 .foregroundStyle(.secondary)
                             Text(e.title)
