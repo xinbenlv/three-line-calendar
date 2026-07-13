@@ -1,12 +1,12 @@
 import SwiftUI
 
-// Minimal iOS companion. Its only job is to make this an iOS app delivery
-// (so it uploads via standard tooling) and host the embedded watch app.
+// iOS app: hosts the embedded watch app and the iOS widget, and shows a live
+// preview of the widget content plus settings.
 @main
 struct ThreeLineCalApp: App {
     var body: some Scene {
         WindowGroup {
-            CompanionView()
+            RootView()
         }
     }
 }

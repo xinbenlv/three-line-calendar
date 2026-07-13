@@ -30,6 +30,7 @@ targets:
         GENERATE_INFOPLIST_FILE: NO
         TARGETED_DEVICE_FAMILY: "1"
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        CODE_SIGN_ENTITLEMENTS: iOS/ThreeLineCal.entitlements
     info:
       path: iOS/Info.plist
       properties:
@@ -37,6 +38,8 @@ targets:
         CFBundleShortVersionString: "$(MARKETING_VERSION)"
         CFBundleIconName: AppIcon
         CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        NSCalendarsFullAccessUsageDescription: "3-Line Calendar shows your upcoming calendar events in the app and its widgets."
+        NSCalendarsUsageDescription: "3-Line Calendar shows your upcoming calendar events in the app and its widgets."
         UILaunchScreen: {}
         UISupportedInterfaceOrientations:
           - UIInterfaceOrientationPortrait

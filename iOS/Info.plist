@@ -22,6 +22,10 @@
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>NSCalendarsFullAccessUsageDescription</key>
+	<string>3-Line Calendar shows your upcoming calendar events in the app and its widgets.</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>3-Line Calendar shows your upcoming calendar events in the app and its widgets.</string>
 	<key>UILaunchScreen</key>
 	<dict/>
 	<key>UISupportedInterfaceOrientations</key>

@@ -53,65 +53,13 @@ struct Provider: TimelineProvider {
 struct ThreeLineCalComplicationView: View {
     var entry: EventEntry
 
-    // One row: fixed-width non-truncating time + tail-trimmed title.
-    // Title truncates with "…" at a constant size — we do NOT shrink the font to fit.
-    private func row(_ e: EventItem) -> some View {
-        HStack(alignment: .firstTextBaseline, spacing: 5) {
-            Text(e.timeStringCompact)
-                .font(.system(size: 20, weight: .semibold))
-                .monospacedDigit()
-                .foregroundStyle(.secondary)
-                .fixedSize()
-            Text(e.title)
-                .font(.system(size: 20))
-                .lineLimit(1)
-                .truncationMode(.tail)
-            Spacer(minLength: 0)
-        }
-    }
-
     var body: some View {
-        Group {
-            if !entry.hasData {
-                message("Open 3 Line Cal Watch Face to sync")
-            } else if entry.events.isEmpty {
-                emptyState
-            } else {
-                VStack(alignment: .leading, spacing: 3) {
-                    ForEach(entry.events.prefix(3)) { row($0) }
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-            }
-        }
-        .containerBackground(.clear, for: .widget)
-    }
-
-    // Centered empty state. If there's a later event, show a "… until next" countdown.
-    // The relative-style Text is locale-aware and live-updates on its own between entries.
-    private var emptyState: some View {
-        VStack(spacing: 3) {
-            if let next = entry.nextEventStart {
-                Text("No events today")
-                    .font(.system(size: 15, weight: .semibold))
-                Text("\(Text(next, style: .relative)) until next")
-                    .font(.system(size: 13))
-                    .foregroundStyle(.secondary)
-            } else {
-                Text("No upcoming events")
-                    .font(.system(size: 15))
-                    .foregroundStyle(.secondary)
-            }
-        }
-        .multilineTextAlignment(.center)
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-    }
-
-    private func message(_ text: LocalizedStringKey) -> some View {
-        Text(text)
-            .font(.system(size: 15))
-            .foregroundStyle(.secondary)
-            .multilineTextAlignment(.center)
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+        // The shared renderer with the frozen v1 watch metrics.
+        EventRowsView(events: entry.events,
+                      nextEventStart: entry.nextEventStart,
+                      hasData: entry.hasData,
+                      style: .watchComplication)
+            .containerBackground(.clear, for: .widget)
     }
 }
 
