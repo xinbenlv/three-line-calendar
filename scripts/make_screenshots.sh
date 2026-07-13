@@ -35,16 +35,11 @@ xcrun simctl launch "$IPHONE" "$IOS_BID" || true
 sleep 4
 xcrun simctl io "$IPHONE" screenshot "$OUT/iphone-companion.png"
 
-echo "[4/5] Watch screenshot (access off -> shows cached seeded events)..."
+echo "[4/5] Watch screenshot (screenshot mode shows demo events)..."
 xcrun simctl install "$WATCH" "$WATCH_APP"
-xcrun simctl privacy "$WATCH" revoke calendar "$WATCH_BID" 2>/dev/null || true
-xcrun simctl spawn "$WATCH" killall -9 cfprefsd 2>/dev/null || true
-sleep 2
-GC="$(xcrun simctl get_app_container "$WATCH" "$WATCH_BID" "$GROUP")"
-mkdir -p "$GC/Library/Preferences"
-python3 "$ROOT/scripts/seed_events.py" "$GC/Library/Preferences/$GROUP.plist"
 xcrun simctl terminate "$WATCH" "$WATCH_BID" 2>/dev/null || true
-xcrun simctl launch "$WATCH" "$WATCH_BID" || true
+# -ScreenshotMode (Debug builds only) makes the app render demo events, no calendar needed.
+xcrun simctl launch "$WATCH" "$WATCH_BID" -ScreenshotMode || true
 sleep 3
 xcrun simctl io "$WATCH" screenshot "$OUT/watch-app.png"
 

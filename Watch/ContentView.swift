@@ -41,6 +41,14 @@ struct ContentView: View {
     }
 
     private func load() async {
+        #if DEBUG
+        // Screenshot mode (Debug only, never ships): show demo events for App Store captures.
+        if ProcessInfo.processInfo.arguments.contains("-ScreenshotMode") {
+            events = EventItem.demo(from: Date())
+            authorized = true
+            return
+        }
+        #endif
         authorized = store.authorized
         // When authorized, pull real events (Apple-synced Google Calendar) into the snapshot.
         if authorized { store.refreshSnapshot() }
