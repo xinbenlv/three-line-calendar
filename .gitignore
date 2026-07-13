@@ -1,0 +1,12 @@
+# Secrets / credentials — never commit
+.creds/
+*.p8
+
+# macOS
+.DS_Store
+
+# Xcode / build artifacts
+build/
+DerivedData/
+*.xcuserstate
+xcuserdata/

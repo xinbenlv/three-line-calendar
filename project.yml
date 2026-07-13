@@ -1,0 +1,94 @@
+name: zWatchface
+options:
+  bundleIdPrefix: im.zzn.apps
+  createIntermediateGroups: true
+  deploymentTarget:
+    watchOS: "10.0"
+    iOS: "17.0"
+
+settings:
+  base:
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    SWIFT_VERSION: "5.0"
+    CODE_SIGN_STYLE: Automatic
+    DEVELOPMENT_TEAM: "859JWBWE5P"
+
+targets:
+  # iOS companion app — makes this an iOS delivery (uploadable via standard tooling)
+  ThreeLineCal:
+    type: application
+    platform: iOS
+    sources:
+      - path: iOS
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: im.zzn.apps.threelinecal
+        GENERATE_INFOPLIST_FILE: NO
+        TARGETED_DEVICE_FAMILY: "1,2"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    info:
+      path: iOS/Info.plist
+      properties:
+        CFBundleDisplayName: "3 Line Cal Watch Face"
+        CFBundleIconName: AppIcon
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+    dependencies:
+      - target: zWatchface
+        embed: true
+
+  # watchOS app — embedded in the iOS app
+  zWatchface:
+    type: application
+    platform: watchOS
+    sources:
+      - path: Shared
+      - path: Watch
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: im.zzn.apps.threelinecal.watchkitapp
+        GENERATE_INFOPLIST_FILE: NO
+        CODE_SIGN_ENTITLEMENTS: Watch/zWatchface.entitlements
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        TARGETED_DEVICE_FAMILY: "4"
+    info:
+      path: Watch/Info.plist
+      properties:
+        CFBundleDisplayName: "3 Line Cal Watch Face"
+        CFBundleIconName: AppIcon
+        WKApplication: true
+        WKCompanionAppBundleIdentifier: im.zzn.apps.threelinecal
+        NSCalendarsFullAccessUsageDescription: "3-Line Calendar shows your upcoming calendar events on your watch face."
+        NSCalendarsUsageDescription: "3-Line Calendar shows your upcoming calendar events on your watch face."
+    dependencies:
+      - target: zWatchfaceComplication
+        embed: true
+
+  # watchOS complication (WidgetKit) — embedded in the watch app
+  zWatchfaceComplication:
+    type: app-extension
+    platform: watchOS
+    sources:
+      - path: Shared
+      - path: Complication
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: im.zzn.apps.threelinecal.watchkitapp.widget
+        GENERATE_INFOPLIST_FILE: NO
+        CODE_SIGN_ENTITLEMENTS: Complication/zWatchfaceComplication.entitlements
+        TARGETED_DEVICE_FAMILY: "4"
+    info:
+      path: Complication/Info.plist
+      properties:
+        CFBundleDisplayName: "3 Line Cal Watch Face"
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension

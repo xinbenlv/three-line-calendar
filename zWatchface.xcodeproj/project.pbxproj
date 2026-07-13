@@ -1,0 +1,596 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		07C1B8F6CD4779EA3B35C7A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E9349808D4FFE423BCAF548 /* Assets.xcassets */; };
+		1EEED52C233D7E53DE7AC9AD /* ComplicationWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD6701102ED8DE8F0D303F2 /* ComplicationWidget.swift */; };
+		212A9A11F5563ECC6696DC25 /* zWatchfaceComplication.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B075000A3269DDC44E269E8C /* zWatchfaceComplication.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		224586B41CF03241D73E78B4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA60951C25045321A297113 /* SettingsView.swift */; };
+		23F527D03730E53DAA1ED812 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0DDCEC55B62CA39CAED7B /* AppGroup.swift */; };
+		32DBB32E55BD2E96C68B41E6 /* zWatchface.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D9CC4C16211EC5FFD004C380 /* zWatchface.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3941E67185B80E2F53BACF7D /* CalendarStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF41F9332DFF81A7EB1840D /* CalendarStore.swift */; };
+		3B9C3B559B45276EC91E9351 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B722588480A1B64DA66C14D5 /* ContentView.swift */; };
+		462607E629C0E62ECD90FE6D /* EventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FC7A1416A736F371AC8B9 /* EventItem.swift */; };
+		6CAB401AF65FC6DA422694C4 /* EventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FC7A1416A736F371AC8B9 /* EventItem.swift */; };
+		A0E59CDC90B93405E6719AA5 /* zWatchfaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9E4FB50FA5F2467BC03D44 /* zWatchfaceApp.swift */; };
+		A11AB11896A3178EF652D91C /* CompanionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E9FCC270F7B9B26AD11BE6 /* CompanionView.swift */; };
+		DC7520D14B19144E1E6224CE /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0DDCEC55B62CA39CAED7B /* AppGroup.swift */; };
+		DFB15A7394AA5CEB62856977 /* ThreeLineCalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BE6992E5A75D55842FB1E /* ThreeLineCalApp.swift */; };
+		F76BF55DB9BE0EFB7DC98F07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D370B519BA0E6B01015962BA /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		15A2B9FE8E34A9EA37FE4F1E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D70CDFE5F6E6FDFEFEB0F951 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0C11C66C4800DD9B6862F6E;
+			remoteInfo = zWatchfaceComplication;
+		};
+		C7C598A13EC214F1E4AA64D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D70CDFE5F6E6FDFEFEB0F951 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 11D198F008904D6F3BA4DDF9;
+			remoteInfo = zWatchface;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9755F33B946D5DFFEA25E5ED /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				32DBB32E55BD2E96C68B41E6 /* zWatchface.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA2B329672059F04F800FBAF /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				212A9A11F5563ECC6696DC25 /* zWatchfaceComplication.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		062BE6992E5A75D55842FB1E /* ThreeLineCalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeLineCalApp.swift; sourceTree = "<group>"; };
+		1191AC446D80D7B497F0E090 /* zWatchfaceComplication.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = zWatchfaceComplication.entitlements; sourceTree = "<group>"; };
+		12E9FCC270F7B9B26AD11BE6 /* CompanionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionView.swift; sourceTree = "<group>"; };
+		13A9041517244910799200C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1CF41F9332DFF81A7EB1840D /* CalendarStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarStore.swift; sourceTree = "<group>"; };
+		1E9349808D4FFE423BCAF548 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		359E9FDBF62C0255B78A0035 /* zWatchface.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = zWatchface.entitlements; sourceTree = "<group>"; };
+		3FA0DDCEC55B62CA39CAED7B /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
+		5CA60951C25045321A297113 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		6ACAA46EB95A9D523D00085E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		7CD6701102ED8DE8F0D303F2 /* ComplicationWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationWidget.swift; sourceTree = "<group>"; };
+		B075000A3269DDC44E269E8C /* zWatchfaceComplication.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = zWatchfaceComplication.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6134162D8695BE1316409EA /* ThreeLineCal.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ThreeLineCal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B722588480A1B64DA66C14D5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BD9E4FB50FA5F2467BC03D44 /* zWatchfaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = zWatchfaceApp.swift; sourceTree = "<group>"; };
+		D09FC7A1416A736F371AC8B9 /* EventItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItem.swift; sourceTree = "<group>"; };
+		D370B519BA0E6B01015962BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D579BF96A44CDD8C0B50E885 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D9CC4C16211EC5FFD004C380 /* zWatchface.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zWatchface.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		04820820FB85DC077E4D90EB /* Watch */ = {
+			isa = PBXGroup;
+			children = (
+				1E9349808D4FFE423BCAF548 /* Assets.xcassets */,
+				1CF41F9332DFF81A7EB1840D /* CalendarStore.swift */,
+				B722588480A1B64DA66C14D5 /* ContentView.swift */,
+				D579BF96A44CDD8C0B50E885 /* Info.plist */,
+				5CA60951C25045321A297113 /* SettingsView.swift */,
+				359E9FDBF62C0255B78A0035 /* zWatchface.entitlements */,
+				BD9E4FB50FA5F2467BC03D44 /* zWatchfaceApp.swift */,
+			);
+			path = Watch;
+			sourceTree = "<group>";
+		};
+		0FEB8F522644772262FD5703 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D370B519BA0E6B01015962BA /* Assets.xcassets */,
+				12E9FCC270F7B9B26AD11BE6 /* CompanionView.swift */,
+				6ACAA46EB95A9D523D00085E /* Info.plist */,
+				062BE6992E5A75D55842FB1E /* ThreeLineCalApp.swift */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		286D4C2ADEFB497C1EF8A65B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B6134162D8695BE1316409EA /* ThreeLineCal.app */,
+				D9CC4C16211EC5FFD004C380 /* zWatchface.app */,
+				B075000A3269DDC44E269E8C /* zWatchfaceComplication.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		395C4F89AB1C4C5B31F0061C /* Complication */ = {
+			isa = PBXGroup;
+			children = (
+				7CD6701102ED8DE8F0D303F2 /* ComplicationWidget.swift */,
+				13A9041517244910799200C0 /* Info.plist */,
+				1191AC446D80D7B497F0E090 /* zWatchfaceComplication.entitlements */,
+			);
+			path = Complication;
+			sourceTree = "<group>";
+		};
+		9722EB90A34D0866003CEF8C = {
+			isa = PBXGroup;
+			children = (
+				395C4F89AB1C4C5B31F0061C /* Complication */,
+				0FEB8F522644772262FD5703 /* iOS */,
+				ED0D96957E83397A3FD9BF86 /* Shared */,
+				04820820FB85DC077E4D90EB /* Watch */,
+				286D4C2ADEFB497C1EF8A65B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ED0D96957E83397A3FD9BF86 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				3FA0DDCEC55B62CA39CAED7B /* AppGroup.swift */,
+				D09FC7A1416A736F371AC8B9 /* EventItem.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		11D198F008904D6F3BA4DDF9 /* zWatchface */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B978E86070EB7B0C218BBBFF /* Build configuration list for PBXNativeTarget "zWatchface" */;
+			buildPhases = (
+				C5E8A61E0DAC0A5782B4EED5 /* Sources */,
+				F63FBB8AB1AFF55AA2261DF1 /* Resources */,
+				EA2B329672059F04F800FBAF /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				86FFD1AFA70D2437E21A7603 /* PBXTargetDependency */,
+			);
+			name = zWatchface;
+			packageProductDependencies = (
+			);
+			productName = zWatchface;
+			productReference = D9CC4C16211EC5FFD004C380 /* zWatchface.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D0C11C66C4800DD9B6862F6E /* zWatchfaceComplication */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C3610FD547113C4F0577EF5 /* Build configuration list for PBXNativeTarget "zWatchfaceComplication" */;
+			buildPhases = (
+				B6109EE325DB6AC56F2EC805 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = zWatchfaceComplication;
+			packageProductDependencies = (
+			);
+			productName = zWatchfaceComplication;
+			productReference = B075000A3269DDC44E269E8C /* zWatchfaceComplication.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		DCA7341F8709C3641725DC2D /* ThreeLineCal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA2DB09ED8B9A44483A9B534 /* Build configuration list for PBXNativeTarget "ThreeLineCal" */;
+			buildPhases = (
+				E81D78A8FE9442903FC319D4 /* Sources */,
+				39B99BC7FB20F3A52FC98B5A /* Resources */,
+				9755F33B946D5DFFEA25E5ED /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F87D675F742DA1649F23B8F8 /* PBXTargetDependency */,
+			);
+			name = ThreeLineCal;
+			packageProductDependencies = (
+			);
+			productName = ThreeLineCal;
+			productReference = B6134162D8695BE1316409EA /* ThreeLineCal.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D70CDFE5F6E6FDFEFEB0F951 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					11D198F008904D6F3BA4DDF9 = {
+						DevelopmentTeam = 859JWBWE5P;
+						ProvisioningStyle = Automatic;
+					};
+					D0C11C66C4800DD9B6862F6E = {
+						DevelopmentTeam = 859JWBWE5P;
+						ProvisioningStyle = Automatic;
+					};
+					DCA7341F8709C3641725DC2D = {
+						DevelopmentTeam = 859JWBWE5P;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = B5BB369553048F8ADF703A4D /* Build configuration list for PBXProject "zWatchface" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 9722EB90A34D0866003CEF8C;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 286D4C2ADEFB497C1EF8A65B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DCA7341F8709C3641725DC2D /* ThreeLineCal */,
+				11D198F008904D6F3BA4DDF9 /* zWatchface */,
+				D0C11C66C4800DD9B6862F6E /* zWatchfaceComplication */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		39B99BC7FB20F3A52FC98B5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F76BF55DB9BE0EFB7DC98F07 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F63FBB8AB1AFF55AA2261DF1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07C1B8F6CD4779EA3B35C7A9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B6109EE325DB6AC56F2EC805 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23F527D03730E53DAA1ED812 /* AppGroup.swift in Sources */,
+				1EEED52C233D7E53DE7AC9AD /* ComplicationWidget.swift in Sources */,
+				6CAB401AF65FC6DA422694C4 /* EventItem.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5E8A61E0DAC0A5782B4EED5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC7520D14B19144E1E6224CE /* AppGroup.swift in Sources */,
+				3941E67185B80E2F53BACF7D /* CalendarStore.swift in Sources */,
+				3B9C3B559B45276EC91E9351 /* ContentView.swift in Sources */,
+				462607E629C0E62ECD90FE6D /* EventItem.swift in Sources */,
+				224586B41CF03241D73E78B4 /* SettingsView.swift in Sources */,
+				A0E59CDC90B93405E6719AA5 /* zWatchfaceApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E81D78A8FE9442903FC319D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A11AB11896A3178EF652D91C /* CompanionView.swift in Sources */,
+				DFB15A7394AA5CEB62856977 /* ThreeLineCalApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		86FFD1AFA70D2437E21A7603 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D0C11C66C4800DD9B6862F6E /* zWatchfaceComplication */;
+			targetProxy = 15A2B9FE8E34A9EA37FE4F1E /* PBXContainerItemProxy */;
+		};
+		F87D675F742DA1649F23B8F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 11D198F008904D6F3BA4DDF9 /* zWatchface */;
+			targetProxy = C7C598A13EC214F1E4AA64D6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		43092B19ACC49823B9E8548B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 859JWBWE5P;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		663B822CDB96D712CD779B28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = iOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = im.zzn.apps.threelinecal;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6A746FEB09470A83C3CF0DFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Watch/zWatchface.entitlements;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Watch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = im.zzn.apps.threelinecal.watchkitapp;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Release;
+		};
+		8AA45D73847B880ABB6A02BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = iOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = im.zzn.apps.threelinecal;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8BCCE92DC831FEE232D67136 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 859JWBWE5P;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		A4CCF5308CDBAE706719CA9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Watch/zWatchface.entitlements;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Watch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = im.zzn.apps.threelinecal.watchkitapp;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		AF06DE7F7CDE8D6E2FA02A0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Complication/zWatchfaceComplication.entitlements;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Complication/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = im.zzn.apps.threelinecal.watchkitapp.widget;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Release;
+		};
+		B8466B92254289BA143042EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Complication/zWatchfaceComplication.entitlements;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Complication/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = im.zzn.apps.threelinecal.watchkitapp.widget;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3C3610FD547113C4F0577EF5 /* Build configuration list for PBXNativeTarget "zWatchfaceComplication" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8466B92254289BA143042EF /* Debug */,
+				AF06DE7F7CDE8D6E2FA02A0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B5BB369553048F8ADF703A4D /* Build configuration list for PBXProject "zWatchface" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43092B19ACC49823B9E8548B /* Debug */,
+				8BCCE92DC831FEE232D67136 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B978E86070EB7B0C218BBBFF /* Build configuration list for PBXNativeTarget "zWatchface" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4CCF5308CDBAE706719CA9A /* Debug */,
+				6A746FEB09470A83C3CF0DFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		CA2DB09ED8B9A44483A9B534 /* Build configuration list for PBXNativeTarget "ThreeLineCal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				663B822CDB96D712CD779B28 /* Debug */,
+				8AA45D73847B880ABB6A02BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D70CDFE5F6E6FDFEFEB0F951 /* Project object */;
+}
