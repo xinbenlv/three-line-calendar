@@ -1,0 +1,14 @@
+Turn this app screenshot into a single App Store marketing image in an
+editorial-minimal style (like Apple's own apps).
+
+Place the provided screenshot inside a modern iPad Pro shown head-on: no tilt, no
+perspective, thin uniform bezels, the screen fully visible and unobstructed.
+The iPad floats, centered, with a soft realistic drop shadow.
+
+Background: a solid deep charcoal (#111114) with a very subtle darker vignette
+and generous empty negative space above and below the device.
+
+Reproduce the screenshot on the screen EXACTLY — crisp, sharp, fully legible.
+Do not add any text, words, headlines, captions, logos, UI chrome, stickers, or
+reflections over the screen. Use the orange accent (#FF9500) only sparingly if at
+all. Calm, premium, minimal.

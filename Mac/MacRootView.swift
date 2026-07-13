@@ -58,6 +58,8 @@ struct MacRootView: View {
     private func load() async {
         #if DEBUG
         WidgetRenderHarness.runIfRequested()
+        // Headless App Store screenshot render (Debug only): writes a PNG and stops.
+        if AppRenderHarness.runIfRequested() { return }
         // Screenshot mode (Debug only, never ships): demo events for App Store captures.
         if ProcessInfo.processInfo.arguments.contains("-ScreenshotMode") {
             events = EventItem.demo(from: Date())

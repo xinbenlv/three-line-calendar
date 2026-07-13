@@ -1,0 +1,14 @@
+Turn this Apple Watch face screenshot into a single App Store marketing image in
+an editorial-minimal style (like Apple's own apps).
+
+Show an Apple Watch Ultra head-on: natural titanium case, flat display, no tilt,
+no perspective, screen fully visible and unobstructed. The watch floats,
+centered, with a soft realistic drop shadow.
+
+Background: a solid deep charcoal (#111114) with a very subtle darker vignette
+and generous empty negative space around the watch.
+
+Reproduce the provided watch face on the display EXACTLY — crisp, sharp, fully
+legible, filling the watch screen. Do not add any text, words, headlines,
+captions, logos, UI chrome, stickers, or reflections over the screen. Keep the
+watch's orange action button. Calm, premium, minimal.
