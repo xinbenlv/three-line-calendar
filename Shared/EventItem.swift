@@ -53,6 +53,8 @@ extension EventItem {
             ev("2", String(localized: "1:1 with Sam"), startMin: 90, durMin: 30),
             ev("3", String(localized: "Design review with the platform team about onboarding"),
                startMin: 180, durMin: 60),
+            ev("4", String(localized: "Lunch with Alex"), startMin: 270, durMin: 60),
+            ev("5", String(localized: "Team retro"), startMin: 360, durMin: 30),
         ]
     }
 }

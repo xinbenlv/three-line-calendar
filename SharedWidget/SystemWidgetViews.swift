@@ -25,13 +25,14 @@ extension EventRowsStyle {
         compactTime: true)
 
     /// Home-screen medium — the flagship, mirrors the watch look.
+    /// Spacing sized so 5 rows fit the standard medium height.
     static let systemMedium = EventRowsStyle(
         timeFont: .system(size: 17, weight: .semibold),
         titleFont: .system(size: 17),
         emptyTitleFont: .system(size: 15, weight: .semibold),
         emptyCaptionFont: .system(size: 13),
         messageFont: .system(size: 15),
-        rowSpacing: 10,
+        rowSpacing: 6,
         compactTime: false)
 
     /// Desktop large (macOS): medium at larger type.
@@ -62,6 +63,9 @@ struct SystemWidgetView: View {
         case .accessoryInline:
             inline
                 .containerBackground(.clear, for: .widget)
+        // Note: on the home screen the system ALWAYS draws the widget platter —
+        // a .clear container renders identically to .background (verified on the
+        // iOS 26 sim). True transparency only exists for the accessory families.
         case .systemSmall:
             headered(style: .systemSmall)
                 .containerBackground(.background, for: .widget)

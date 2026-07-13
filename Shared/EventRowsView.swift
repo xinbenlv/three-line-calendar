@@ -48,8 +48,10 @@ struct EventRowsView: View {
             } else if events.isEmpty {
                 emptyState
             } else {
+                // Callers pass events already narrowed to their line budget
+                // (3 on the watch face / lock screen, 5 on system widgets).
                 VStack(alignment: .leading, spacing: style.rowSpacing) {
-                    ForEach(events.prefix(3)) { row($0) }
+                    ForEach(events) { row($0) }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             }

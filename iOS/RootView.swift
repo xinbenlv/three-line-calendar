@@ -82,7 +82,7 @@ struct RootView: View {
         authorized = store.authorized
         // When authorized, refresh the shared snapshot (also reloads the widgets).
         let all = authorized ? store.refreshSnapshot() : AppGroup.loadSnapshot()
-        events = all.todaysNext(3)
+        events = all.todaysNext(5)   // the preview mirrors the 5-line medium widget
         nextStart = all.nextUpcomingStart()
     }
 

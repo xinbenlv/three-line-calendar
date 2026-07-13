@@ -19,17 +19,18 @@ enum WidgetRenderHarness {
         return true
     }
 
-    // Representative point sizes per family (exact sizes vary slightly by device).
-    private static var families: [(WidgetFamily, CGSize, String)] {
+    // Representative point sizes + line budget per family (5 on system families,
+    // matching EventTimelineProvider.maxLines; exact sizes vary slightly by device).
+    private static var families: [(WidgetFamily, CGSize, String, Int)] {
         #if os(macOS)
-        [(.systemSmall, CGSize(width: 170, height: 170), "systemSmall"),
-         (.systemMedium, CGSize(width: 364, height: 170), "systemMedium"),
-         (.systemLarge, CGSize(width: 364, height: 382), "systemLarge")]
+        [(.systemSmall, CGSize(width: 170, height: 170), "systemSmall", 5),
+         (.systemMedium, CGSize(width: 364, height: 170), "systemMedium", 5),
+         (.systemLarge, CGSize(width: 364, height: 382), "systemLarge", 5)]
         #else
-        [(.systemSmall, CGSize(width: 170, height: 170), "systemSmall"),
-         (.systemMedium, CGSize(width: 364, height: 170), "systemMedium"),
-         (.accessoryRectangular, CGSize(width: 172, height: 76), "accessoryRectangular"),
-         (.accessoryInline, CGSize(width: 234, height: 26), "accessoryInline")]
+        [(.systemSmall, CGSize(width: 170, height: 170), "systemSmall", 5),
+         (.systemMedium, CGSize(width: 364, height: 170), "systemMedium", 5),
+         (.accessoryRectangular, CGSize(width: 172, height: 76), "accessoryRectangular", 3),
+         (.accessoryInline, CGSize(width: 234, height: 26), "accessoryInline", 1)]
         #endif
     }
 
@@ -40,13 +41,13 @@ enum WidgetRenderHarness {
         let dir = base.appending(path: lang)
         try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
 
-        let withEvents = EventEntry(date: now,
-                                    events: Array(EventItem.demo(from: now).prefix(3)),
-                                    nextEventStart: nil, hasData: true)
         let empty = EventEntry(date: now, events: [],
                                nextEventStart: now.addingTimeInterval(9_000), hasData: true)
 
-        for (family, size, name) in families {
+        for (family, size, name, lines) in families {
+            let withEvents = EventEntry(date: now,
+                                        events: Array(EventItem.demo(from: now).prefix(lines)),
+                                        nextEventStart: nil, hasData: true)
             for (entry, state) in [(withEvents, "events"), (empty, "empty")] {
                 let view = SystemWidgetView(entry: entry, familyOverride: family)
                     .frame(width: size.width, height: size.height)
