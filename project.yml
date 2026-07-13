@@ -28,7 +28,7 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: im.zzn.apps.threelinecal
         GENERATE_INFOPLIST_FILE: NO
-        TARGETED_DEVICE_FAMILY: "1"
+        TARGETED_DEVICE_FAMILY: "1,2"
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         CODE_SIGN_ENTITLEMENTS: iOS/ThreeLineCal.entitlements
     info:
@@ -52,6 +52,8 @@ targets:
           - UIInterfaceOrientationLandscapeRight
     dependencies:
       - target: ThreeLineCalWatch
+        embed: true
+      - target: ThreeLineCalWidget
         embed: true
 
   # watchOS app — embedded in the iOS app
@@ -83,12 +85,39 @@ targets:
       - target: ThreeLineCalComplication
         embed: true
 
+  # iOS/iPadOS home-screen + lock-screen widget — embedded in the iOS app
+  ThreeLineCalWidget:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: Shared
+      - path: SharedWidget
+      - path: Widget
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: im.zzn.apps.threelinecal.widget
+        GENERATE_INFOPLIST_FILE: NO
+        CODE_SIGN_ENTITLEMENTS: Widget/ThreeLineCalWidget.entitlements
+        TARGETED_DEVICE_FAMILY: "1,2"
+    info:
+      path: Widget/Info.plist
+      properties:
+        CFBundleDisplayName: "3 Line Cal Watch Face"
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        # Required in the appex plist — EventKit is read in the widget process.
+        NSCalendarsFullAccessUsageDescription: "Shows your upcoming calendar events in the widget."
+        NSCalendarsUsageDescription: "Shows your upcoming calendar events in the widget."
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+
   # watchOS complication (WidgetKit) — embedded in the watch app
   ThreeLineCalComplication:
     type: app-extension
     platform: watchOS
     sources:
       - path: Shared
+      - path: SharedWidget
       - path: Complication
     settings:
       base:

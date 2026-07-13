@@ -72,6 +72,11 @@ struct RootView: View {
             authorized = true
             return
         }
+        // QA aid: write demo events into the real (simulator) calendar via EventKit,
+        // so the widget's direct-EventKit path can be exercised end to end.
+        if ProcessInfo.processInfo.arguments.contains("-SeedEventKit") {
+            seedEventKitDemo()
+        }
         #endif
         authorized = store.authorized
         // When authorized, refresh the shared snapshot (also reloads the widgets).
@@ -79,4 +84,24 @@ struct RootView: View {
         events = all.todaysNext(3)
         nextStart = all.nextUpcomingStart()
     }
+
+    #if DEBUG
+    private static var didSeed = false
+
+    // Once per launch (load() re-fires on foreground + EKEventStoreChanged);
+    // repeated *launches* still duplicate events — it's a QA tool, keep it simple.
+    private func seedEventKitDemo() {
+        guard store.authorized, !Self.didSeed else { return }
+        Self.didSeed = true
+        for item in EventItem.demo(from: Date()) {
+            let ev = EKEvent(eventStore: store.store)
+            ev.title = item.title
+            ev.startDate = item.start
+            ev.endDate = item.end
+            ev.calendar = store.store.defaultCalendarForNewEvents
+            try? store.store.save(ev, span: .thisEvent, commit: false)
+        }
+        try? store.store.commit()
+    }
+    #endif
 }

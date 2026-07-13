@@ -17,18 +17,30 @@ final class CalendarStore {
     }
 
     func eventCalendars() -> [EKCalendar] {
+        Self.calendars(in: store)
+    }
+
+    func upcomingEvents(days: Int = 7, now: Date = Date()) -> [EventItem] {
+        Self.fetchUpcoming(in: store, days: days, now: now)
+    }
+
+    // MARK: - Platform-neutral query helpers (also used inside the widget processes)
+
+    nonisolated static func calendars(in store: EKEventStore) -> [EKCalendar] {
         store.calendars(for: .event).sorted { $0.title < $1.title }
     }
 
     /// Upcoming timed events across the next `days` days in the selected calendars,
-    /// excluding all-day and multi-day events. The complication shows today's next 3 and
-    /// uses the later ones only to compute the "next in …" countdown.
-    func upcomingEvents(days: Int = 7, now: Date = Date()) -> [EventItem] {
+    /// excluding all-day and multi-day events. The widgets show today's next 3 and
+    /// use the later ones only to compute the "next in …" countdown.
+    nonisolated static func fetchUpcoming(in store: EKEventStore,
+                                          days: Int = 7,
+                                          now: Date = Date()) -> [EventItem] {
         let cal = Calendar.current
         guard let end = cal.date(byAdding: .day, value: days, to: now) else { return [] }
 
         let selectedIDs = AppGroup.selectedCalendarIDs
-        let calendars = eventCalendars().filter { c in
+        let calendars = Self.calendars(in: store).filter { c in
             guard let sel = selectedIDs else { return true } // nil => all
             return sel.contains(c.calendarIdentifier)
         }
