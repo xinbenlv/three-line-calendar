@@ -25,7 +25,8 @@ A clean rectangular complication that shows your next three events of the day �
 I got sick and tired of apps that nag, upsell, and harvest your data. So I built the one I
 actually want to use — and I'm giving it away.
 
-- 💯 **Completely free** — no charge, no premium tier, no in-app purchases
+- 💯 **Completely free** — no charge, no hidden charges, no in-app purchases, no premium tier
+- 🔑 **No account, no sign-in** — just install and go
 - 🚫 **No ads** — ever
 - 🕵️ **No tracking, no analytics** — the app makes no network requests to send your data anywhere
 - 📅 **Your data stays with you** — calendar events are read on-device via Apple's EventKit and never leave your watch/phone
@@ -75,4 +76,4 @@ scripts/upload_screenshots.py      # uploads them via the App Store Connect API 
 
 ## License
 
-[Apache License 2.0](LICENSE) © 2026 Zainan Zhou.
+[Apache License 2.0](LICENSE) © 2026 Z. Victor Zhou.
