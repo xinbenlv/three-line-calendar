@@ -90,9 +90,10 @@ grant calendar access, then add the **Next 3 Events** complication to a rectangu
 ### Regenerate App Store screenshots & metadata
 
 ```bash
-scripts/make_screenshots.sh        # builds, runs simulators + the Mac app, saves PNGs to screenshots/
-scripts/upload_screenshots.py      # uploads them via the App Store Connect API (needs .creds/)
-scripts/upload_metadata.py         # uploads metadata/<locale>/ (21 localized store listings)
+scripts/make_screenshots.sh          # builds, runs simulators + the Mac app, saves PNGs to screenshots/
+scripts/render_widget_screenshots.sh # widget family x locale renders + adds the real widget to the sim home screen
+scripts/upload_screenshots.py        # uploads them via the App Store Connect API (needs .creds/)
+scripts/upload_metadata.py           # uploads metadata/<locale>/ (21 localized store listings)
 ```
 
 Localized store listings live in `metadata/<asc-locale>/{description,keywords,subtitle,whats_new}.txt`.

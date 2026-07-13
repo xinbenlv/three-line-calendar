@@ -38,7 +38,12 @@ struct EventTimelineProvider: TimelineProvider {
         #if DEBUG
         // Screenshot aid (Debug only, never ships): fall back to demo events when the
         // simulator has no synced calendar, so the widget renders real-looking data.
-        if all.todaysNext(3, now: date).isEmpty { all = EventItem.demo(from: date) }
+        // QA can disable it (defaults write <group> debugDisableDemoFallback -bool true)
+        // to tell a real EventKit read apart from the demo data.
+        if all.todaysNext(3, now: date).isEmpty,
+           !AppGroup.defaults.bool(forKey: "debugDisableDemoFallback") {
+            all = EventItem.demo(from: date)
+        }
         #endif
         return EventEntry(date: date,
                           events: all.todaysNext(3, now: date),

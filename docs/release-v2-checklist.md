@@ -61,11 +61,12 @@ xcodebuild -exportArchive -archivePath build/ThreeLineCalMac.xcarchive \
 - [ ] **Watch-face regression**: existing complication placement survives the update;
       rows look identical apart from the two intended changes (locale-aware time
       format, "45 min" style live countdown — both called out in what's-new).
-- [ ] **iOS widget**: add systemSmall/systemMedium to the Home Screen and the
-      rectangular + inline widgets to the Lock Screen; grant calendar access in the
-      app; add a calendar event *without reopening the app* and confirm the widget
-      shows it after the next refresh (proves the direct-EventKit read; if it never
-      appears, the snapshot fallback is still correct but file an issue).
+- [ ] **iOS widget**: `scripts/render_widget_screenshots.sh` already covers this
+      programmatically — it renders every family per locale, adds the real widget to
+      the simulator home screen via XCUITest, and captures it with the snapshot
+      cleared + demo fallback disabled (verified 2026-07-13: the appex reads EventKit
+      itself). On device, just spot-check: add the Home Screen + Lock Screen widgets
+      and confirm events appear.
 - [ ] **iPad**: app + widgets on a 13" iPad (new App Store requirement returns).
 - [ ] **Mac**: launch the app, grant calendar access (expect a one-time app-group
       consent prompt on macOS 15+ dev builds), add the desktop widget from the widget

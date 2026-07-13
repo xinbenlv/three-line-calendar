@@ -47,8 +47,12 @@ extension EventRowsStyle {
 
 /// Family-aware layouts for the iOS/iPad/macOS widget.
 struct SystemWidgetView: View {
-    @Environment(\.widgetFamily) private var family
+    @Environment(\.widgetFamily) private var envFamily
     var entry: EventEntry
+    /// The render harness can't set \.widgetFamily (read-only); widgets leave this nil.
+    var familyOverride: WidgetFamily?
+
+    private var family: WidgetFamily { familyOverride ?? envFamily }
 
     var body: some View {
         switch family {

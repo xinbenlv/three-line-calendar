@@ -17,14 +17,40 @@ settings:
     # Extract SwiftUI/String(localized:) keys during builds so the string catalog stays in sync.
     SWIFT_EMIT_LOC_STRINGS: YES
 
+# Declaring any scheme disables Xcode's auto-created ones, so declare them all.
+schemes:
+  ThreeLineCal:
+    build:
+      targets:
+        ThreeLineCal: all
+  ThreeLineCalWatch:
+    build:
+      targets:
+        ThreeLineCalWatch: all
+  ThreeLineCalMac:
+    build:
+      targets:
+        ThreeLineCalMac: all
+  # `xcodebuild test -scheme ThreeLineCalUITests` adds the widget via Springboard
+  ThreeLineCalUITests:
+    build:
+      targets:
+        ThreeLineCal: all
+        ThreeLineCalUITests: [test]
+    test:
+      targets:
+        - ThreeLineCalUITests
+
 targets:
   # iOS companion app — makes this an iOS delivery (uploadable via standard tooling)
+  # (SharedWidget is included for the DEBUG widget-render harness; unused in Release.)
   ThreeLineCal:
     type: application
     platform: iOS
     sources:
       - path: iOS
       - path: Shared
+      - path: SharedWidget
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: im.zzn.apps.threelinecal
@@ -118,6 +144,7 @@ targets:
     platform: macOS
     sources:
       - path: Shared
+      - path: SharedWidget
       - path: Mac
     settings:
       base:
@@ -164,6 +191,19 @@ targets:
         NSCalendarsUsageDescription: "Shows your upcoming calendar events in the widget."
         NSExtension:
           NSExtensionPointIdentifier: com.apple.widgetkit-extension
+
+  # UI tests — drives Springboard to add the real widget to the sim home screen
+  ThreeLineCalUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: UITests
+    settings:
+      base:
+        TEST_TARGET_NAME: ThreeLineCal
+        GENERATE_INFOPLIST_FILE: YES
+    dependencies:
+      - target: ThreeLineCal
 
   # watchOS complication (WidgetKit) — embedded in the watch app
   ThreeLineCalComplication:

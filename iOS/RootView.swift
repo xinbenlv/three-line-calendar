@@ -66,6 +66,7 @@ struct RootView: View {
 
     private func load() async {
         #if DEBUG
+        WidgetRenderHarness.runIfRequested()
         // Screenshot mode (Debug only, never ships): demo events for App Store captures.
         if ProcessInfo.processInfo.arguments.contains("-ScreenshotMode") {
             events = EventItem.demo(from: Date())
