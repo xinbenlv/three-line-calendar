@@ -5,6 +5,7 @@ options:
   deploymentTarget:
     watchOS: "10.0"
     iOS: "17.0"
+    macOS: "14.0"
 
 settings:
   base:
@@ -101,6 +102,59 @@ targets:
         TARGETED_DEVICE_FAMILY: "1,2"
     info:
       path: Widget/Info.plist
+      properties:
+        CFBundleDisplayName: "3 Line Cal Watch Face"
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        # Required in the appex plist — EventKit is read in the widget process.
+        NSCalendarsFullAccessUsageDescription: "Shows your upcoming calendar events in the widget."
+        NSCalendarsUsageDescription: "Shows your upcoming calendar events in the widget."
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+
+  # macOS app — same bundle ID as the iOS app => universal purchase; hosts the desktop widget
+  ThreeLineCalMac:
+    type: application
+    platform: macOS
+    sources:
+      - path: Shared
+      - path: Mac
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: im.zzn.apps.threelinecal
+        GENERATE_INFOPLIST_FILE: NO
+        CODE_SIGN_ENTITLEMENTS: Mac/ThreeLineCalMac.entitlements
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    info:
+      path: Mac/Info.plist
+      properties:
+        CFBundleDisplayName: "3 Line Cal Watch Face"
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleIconName: AppIcon
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        LSApplicationCategoryType: public.app-category.productivity
+        NSHumanReadableCopyright: "© 2026 Z. Victor Zhou"
+        NSCalendarsFullAccessUsageDescription: "3-Line Calendar shows your upcoming calendar events in the app and its widgets."
+        NSCalendarsUsageDescription: "3-Line Calendar shows your upcoming calendar events in the app and its widgets."
+    dependencies:
+      - target: ThreeLineCalMacWidget
+        embed: true
+
+  # macOS desktop/Notification Center widget — embedded in the Mac app
+  ThreeLineCalMacWidget:
+    type: app-extension
+    platform: macOS
+    sources:
+      - path: Shared
+      - path: SharedWidget
+      - path: MacWidget
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: im.zzn.apps.threelinecal.widget
+        GENERATE_INFOPLIST_FILE: NO
+        CODE_SIGN_ENTITLEMENTS: MacWidget/ThreeLineCalMacWidget.entitlements
+    info:
+      path: MacWidget/Info.plist
       properties:
         CFBundleDisplayName: "3 Line Cal Watch Face"
         CFBundleShortVersionString: "$(MARKETING_VERSION)"

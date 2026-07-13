@@ -5,7 +5,15 @@ enum AppGroup {
     static let identifier = "group.im.zzn.apps.threelinecal"
 
     static var defaults: UserDefaults {
-        UserDefaults(suiteName: identifier) ?? .standard
+        guard let suite = UserDefaults(suiteName: identifier) else {
+            #if DEBUG
+            // A silent fallback would invisibly split app/widget data on a
+            // misprovisioned build (the classic macOS app-group failure mode).
+            print("AppGroup: suite \(identifier) unavailable — using .standard, data will NOT be shared")
+            #endif
+            return .standard
+        }
+        return suite
     }
 
     private static let selectedKey = "selectedCalendarIDs"
@@ -25,7 +33,9 @@ enum AppGroup {
 
     static var hasSnapshot: Bool { defaults.data(forKey: snapshotKey) != nil }
 
-    /// The app writes today's remaining events here; the complication reads them.
+    /// The app writes today's remaining events here; the widgets read them.
+    /// Encoding is frozen: JSONEncoder defaults (.deferredToDate = seconds since
+    /// 2001-01-01 UTC) — scripts/seed_events.py hardcodes that epoch. Do not change.
     static func saveSnapshot(_ events: [EventItem]) {
         if let data = try? JSONEncoder().encode(events) {
             defaults.set(data, forKey: snapshotKey)
