@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Your next three events, at a glance, on Apple Watch, iPhone, iPad, and Mac." />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" type="image/png" href="app-icon.png" />
+    <link rel="apple-touch-icon" href="app-icon.png" />
+    <title>3-Line Calendar for Watch Face</title>
+    <style>
+      :root { --text:#1d1d1f; --muted:#6e6e73; --blue:#0071e3; --blue-hover:#0077ed; --surface:#f5f5f7; --line:#d2d2d7; --radius:24px; }
+      * { box-sizing:border-box; }
+      html { scroll-behavior:smooth; }
+      body { margin:0; color:var(--text); background:#fff; font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",sans-serif; -webkit-font-smoothing:antialiased; }
+      a { color:inherit; } img { display:block; max-width:100%; }
+      .shell { width:min(1180px,calc(100% - 44px)); margin:0 auto; }
+      .nav { height:48px; display:flex; align-items:center; justify-content:space-between; font-size:12px; }
+      .brand { display:inline-flex; align-items:center; gap:8px; font-weight:600; text-decoration:none; letter-spacing:-.01em; }
+      .app-icon { width:22px; height:22px; border-radius:5px; }
+      .nav-links { display:flex; align-items:center; gap:24px; }
+      .nav-links a { color:var(--muted); text-decoration:none; }
+      .nav-links a:hover { color:var(--text); }
+      .nav-links .nav-cta { padding:7px 12px; color:#fff; background:var(--blue); border-radius:980px; }
+      .nav-links .nav-cta:hover { color:#fff; background:var(--blue-hover); }
+
+      .hero { overflow:hidden; padding:76px 0 0; text-align:center; background:linear-gradient(180deg,#fff 0%,#fafafa 77%,#f5f5f7 100%); }
+      .eyebrow { margin:0 0 12px; color:var(--blue); font-size:17px; font-weight:600; letter-spacing:-.02em; }
+      h1,h2,h3,p { margin-top:0; }
+      h1 { max-width:760px; margin:0 auto 18px; font-size:clamp(48px,7vw,80px); line-height:1.05; letter-spacing:-.055em; }
+      .hero-copy { max-width:610px; margin:0 auto; color:var(--muted); font-size:clamp(21px,2.5vw,28px); line-height:1.18; letter-spacing:-.035em; }
+      .hero-actions { display:flex; justify-content:center; gap:26px; margin:24px 0 57px; font-size:19px; }
+      .link { color:var(--blue); text-decoration:none; }
+      .link:hover { color:var(--blue-hover); text-decoration:underline; text-underline-offset:4px; }
+      .hero-gallery { position:relative; width:min(990px,100%); height:435px; margin:0 auto; }
+      .watch-shot { position:absolute; z-index:2; left:17%; bottom:-1px; width:252px; filter:drop-shadow(0 20px 18px rgba(0,0,0,.18)); transform:rotate(-4deg); transform-origin:bottom center; }
+      .phone-shot { position:absolute; z-index:1; right:13%; bottom:-440px; width:405px; border-radius:43px; box-shadow:0 28px 42px rgba(0,0,0,.18); }
+
+      .intro { padding:136px 0 130px; text-align:center; }
+      .intro h2 { max-width:720px; margin:0 auto 20px; font-size:clamp(38px,5.4vw,56px); line-height:1.08; letter-spacing:-.052em; }
+      .intro p { max-width:650px; margin:0 auto; color:var(--muted); font-size:21px; line-height:1.32; letter-spacing:-.028em; }
+
+      .feature { overflow:hidden; background:var(--surface); }
+      .feature-inner { display:grid; grid-template-columns:1fr 1fr; align-items:center; min-height:650px; gap:40px; }
+      .feature-copy { max-width:430px; padding:70px 0; }
+      .feature-copy h2 { margin-bottom:17px; font-size:clamp(38px,4.3vw,54px); line-height:1.06; letter-spacing:-.052em; }
+      .feature-copy p { margin-bottom:22px; color:var(--muted); font-size:21px; line-height:1.33; letter-spacing:-.025em; }
+      .feature-media { align-self:end; justify-self:center; width:345px; padding-top:65px; }
+      .feature-media img { border-radius:42px 42px 0 0; box-shadow:0 16px 32px rgba(0,0,0,.15); }
+
+      .platforms { padding:132px 0; text-align:center; }
+      .platforms h2 { max-width:660px; margin:0 auto 16px; font-size:clamp(38px,5.5vw,56px); line-height:1.07; letter-spacing:-.055em; }
+      .platforms > .shell > p { max-width:555px; margin:0 auto 65px; color:var(--muted); font-size:21px; line-height:1.34; letter-spacing:-.025em; }
+      .platform-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; text-align:left; }
+      .platform { min-height:424px; overflow:hidden; padding:30px 30px 0; background:var(--surface); border-radius:var(--radius); }
+      .platform h3 { margin:0 0 9px; font-size:24px; letter-spacing:-.035em; }
+      .platform p { margin:0; color:var(--muted); font-size:17px; line-height:1.35; letter-spacing:-.018em; }
+      .platform-watch { display:flex; justify-content:center; margin:28px auto 0; width:204px; filter:drop-shadow(0 13px 13px rgba(0,0,0,.15)); }
+      .platform-phone { width:199px; margin:22px auto -89px; border-radius:22px; box-shadow:0 13px 24px rgba(0,0,0,.15); }
+      .platform-ipad { width:245px; margin:24px auto -95px; border-radius:13px; box-shadow:0 13px 24px rgba(0,0,0,.15); }
+      .platform-mac { width:266px; margin:35px auto 0; border-radius:9px 9px 0 0; box-shadow:0 13px 24px rgba(0,0,0,.14); }
+
+      .gallery { padding:0 0 132px; }
+      .gallery-heading { max-width:590px; margin-bottom:38px; }
+      .gallery-heading h2 { margin:0 0 12px; font-size:clamp(36px,4.5vw,52px); line-height:1.08; letter-spacing:-.052em; }
+      .gallery-heading p { margin:0; color:var(--muted); font-size:20px; line-height:1.32; letter-spacing:-.025em; }
+      .gallery-grid { display:grid; grid-template-columns:1.25fr .75fr; gap:18px; }
+      .gallery-card { position:relative; min-height:540px; overflow:hidden; padding:30px; background:var(--surface); border-radius:var(--radius); }
+      .gallery-card h3 { margin:0 0 8px; font-size:24px; letter-spacing:-.035em; }
+      .gallery-card p { position:relative; z-index:1; max-width:300px; margin:0; color:var(--muted); font-size:17px; line-height:1.35; letter-spacing:-.018em; }
+      .widget-shot { position:absolute; left:50%; bottom:-220px; width:370px; border-radius:40px; box-shadow:0 18px 32px rgba(0,0,0,.17); transform:translateX(-50%); }
+      .watch-app-shot { position:absolute; bottom:-3px; left:50%; width:285px; filter:drop-shadow(0 14px 14px rgba(0,0,0,.17)); transform:translateX(-50%); }
+
+      .privacy { padding:117px 0; color:#f5f5f7; background:#000; text-align:center; }
+      .privacy h2 { max-width:670px; margin:0 auto 18px; font-size:clamp(38px,5.5vw,56px); line-height:1.07; letter-spacing:-.055em; }
+      .privacy p { max-width:590px; margin:0 auto 25px; color:#a1a1a6; font-size:21px; line-height:1.34; letter-spacing:-.025em; }
+      .privacy .link { color:#2997ff; }
+
+      footer { padding:25px 0; color:var(--muted); font-size:12px; }
+      .footer-inner { display:flex; justify-content:space-between; gap:20px; }
+      footer a { text-decoration:none; } footer a:hover { text-decoration:underline; }
+
+      @media (max-width:720px) {
+        .shell { width:min(100% - 32px,560px); }
+        .nav-links { gap:14px; } .nav-links a:not(.nav-cta) { display:none; }
+        .hero { padding-top:61px; } .hero-actions { margin-bottom:39px; font-size:17px; }
+        .hero-gallery { height:325px; } .watch-shot { left:4%; width:185px; } .phone-shot { right:1%; bottom:-294px; width:285px; border-radius:31px; }
+        .intro,.platforms { padding:84px 0; } .intro p,.platforms > .shell > p,.feature-copy p,.privacy p { font-size:19px; }
+        .feature-inner { grid-template-columns:1fr; min-height:unset; gap:0; text-align:center; } .feature-copy { margin:auto; padding:80px 0 42px; } .feature-media { width:275px; padding-top:0; }
+        .platform-grid { grid-template-columns:1fr; } .platform { min-height:374px; text-align:center; } .platform-watch { width:184px; }
+        .gallery { padding:0 0 84px; } .gallery-grid { grid-template-columns:1fr; } .gallery-card { min-height:445px; text-align:center; } .widget-shot { bottom:-220px; } .watch-app-shot { width:250px; }
+        .privacy { padding:84px 0; } .footer-inner { flex-direction:column; gap:7px; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="shell nav">
+      <a class="brand" href="./" aria-label="3-Line Calendar home"><img class="app-icon" src="app-icon.png" alt="" />3-Line Calendar</a>
+      <nav class="nav-links" aria-label="Primary navigation"><a href="#screens">Screens</a><a href="privacy.html">Privacy</a><a class="nav-cta" href="https://github.com/xinbenlv/three-line-calendar">View Source</a></nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="shell">
+          <p class="eyebrow">3-Line Calendar for Watch Face</p>
+          <h1>Your next events.<br />At a glance.</h1>
+          <p class="hero-copy">A simple view of the next three things on your calendar—right on your Apple Watch, iPhone, iPad, and Mac.</p>
+          <div class="hero-actions"><a class="link" href="#screens">See it in action&nbsp; ›</a><a class="link" href="https://github.com/xinbenlv/three-line-calendar">Explore the source&nbsp; ↗</a></div>
+          <div class="hero-gallery" aria-label="3-Line Calendar on Apple Watch and iPhone"><img class="watch-shot" src="screenshots/watch-face-ultra.png" alt="Three upcoming events displayed on an Apple Watch face" /><img class="phone-shot" src="screenshots/iphone-companion.png" alt="Three upcoming events displayed in the iPhone app" /></div>
+        </div>
+      </section>
+
+      <section class="intro"><div class="shell"><h2>Know what’s next without opening your calendar.</h2><p>Three clean lines. Time and title. Just enough information to move through your day with confidence.</p></div></section>
+
+      <section class="feature" id="screens"><div class="shell feature-inner">
+        <div class="feature-copy"><h2>Made for the face you already wear.</h2><p>The rectangular complication gives your next three timed events a quiet, readable home on Apple Watch.</p><a class="link" href="https://github.com/xinbenlv/three-line-calendar">Learn about the complication&nbsp; ↗</a></div>
+        <div class="feature-media"><img src="screenshots/watch-face-modular.png" alt="3-Line Calendar on a modular Apple Watch face" /></div>
+      </div></section>
+
+      <section class="platforms"><div class="shell">
+        <h2>There when you need it.</h2><p>The same clear view works across the Apple devices that carry your day.</p>
+        <div class="platform-grid">
+          <article class="platform"><h3>Apple Watch</h3><p>Your next events on the watch face.</p><img class="platform-watch" src="screenshots/watch-face-ultra.png" alt="Apple Watch Ultra screenshot" /></article>
+          <article class="platform"><h3>iPhone</h3><p>One glance from the app or widgets.</p><img class="platform-phone" src="screenshots/iphone-companion.png" alt="iPhone companion app screenshot" /></article>
+          <article class="platform"><h3>iPad</h3><p>A spacious, calm view of what comes next.</p><img class="platform-ipad" src="screenshots/ipad-companion.png" alt="iPad companion app screenshot" /></article>
+          <article class="platform"><h3>Mac</h3><p>A calm view of what comes next.</p><img class="platform-mac" src="screenshots/mac-app.png" alt="Mac app screenshot" /></article>
+        </div>
+      </div></section>
+
+      <section class="gallery"><div class="shell">
+        <div class="gallery-heading"><h2>Even closer at hand.</h2><p>Use the in-app view when you want it, or keep the next event directly on your Home Screen.</p></div>
+        <div class="gallery-grid">
+          <article class="gallery-card"><h3>Home Screen widget</h3><p>See the next thing before you open anything.</p><img class="widget-shot" src="screenshots/widgets/ios-homescreen.png" alt="3-Line Calendar widget on an iPhone Home Screen" /></article>
+          <article class="gallery-card"><h3>Apple Watch app</h3><p>Your schedule, right on your wrist.</p><img class="watch-app-shot" src="screenshots/watch-app.png" alt="3-Line Calendar app on Apple Watch" /></article>
+        </div>
+      </div></section>
+
+      <section class="privacy"><div class="shell"><h2>Your calendar is yours.</h2><p>3-Line Calendar does not collect, store, or transmit your personal information. Your calendar data stays on your device.</p><a class="link" href="privacy.html">Read the privacy policy&nbsp; ›</a></div></section>
+    </main>
+
+    <footer><div class="shell footer-inner"><span>Copyright © 2026 Z. Victor Zhou</span><span><a href="privacy.html">Privacy</a> · <a href="https://github.com/xinbenlv/three-line-calendar">GitHub</a> · <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a></span></div></footer>
+  </body>
+</html>
