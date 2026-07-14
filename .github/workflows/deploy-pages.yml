@@ -29,9 +29,11 @@ jobs:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Stamp deployment version
-        env:
-          VERSION: "2.0.0"
         run: |
+          VERSION="$(awk -F'"' '/^[[:space:]]*MARKETING_VERSION:/ { print $2; exit }' project.yml)"
+          SITE_VERSION="$(node -p "require('./www/versionz.json').version")"
+          test -n "$VERSION" || { echo "::error::MARKETING_VERSION is missing from project.yml"; exit 1; }
+          test "$VERSION" = "$SITE_VERSION" || { echo "::error::www/versionz.json ($SITE_VERSION) must match project.yml MARKETING_VERSION ($VERSION)"; exit 1; }
           printf '{"version":"%s","commit_hash":"%s","commit_url":"https://github.com/xinbenlv/three-line-calendar/commit/%s","stamp":"v%s-%s"}\n' "$VERSION" "$GITHUB_SHA" "$GITHUB_SHA" "$VERSION" "${GITHUB_SHA:0:7}" > www/versionz.json
       - name: Upload the portal
         uses: actions/upload-pages-artifact@v3
