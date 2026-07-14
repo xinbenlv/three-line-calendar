@@ -34,6 +34,34 @@ enum WidgetRenderHarness {
         #endif
     }
 
+    /// Marketing variant: renders each system family's real content with content
+    /// margins and a TRANSPARENT background (no opaque platter), so a compositor can
+    /// lay it over a frosted-material card built from the wallpaper — the authentic
+    /// desktop-widget look. Dark-scheme content (light text) for a dark desktop.
+    /// Triggered by `-RenderWidgetMarketing [dir]`. Driven by scripts.
+    @discardableResult
+    static func runMarketingIfRequested() -> Bool {
+        let args = ProcessInfo.processInfo.arguments
+        guard let idx = args.firstIndex(of: "-RenderWidgetMarketing") else { return false }
+        let dir = (idx + 1 < args.count && args[idx + 1].hasPrefix("/"))
+            ? URL(fileURLWithPath: args[idx + 1])
+            : URL.documentsDirectory.appending(path: "widget-marketing")
+        try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
+        let now = Date()
+        for (family, size, name, lines) in families {
+            let entry = EventEntry(date: now,
+                                   events: Array(EventItem.demo(from: now).prefix(lines)),
+                                   nextEventStart: nil, hasData: true)
+            let view = SystemWidgetView(entry: entry, familyOverride: family)
+                .padding(16)   // stands in for WidgetKit's default content margins
+                .frame(width: size.width, height: size.height, alignment: .topLeading)
+                .environment(\.colorScheme, .dark)
+            write(view, to: dir.appending(path: "\(name).png"))
+        }
+        print("WidgetRenderHarness: wrote marketing widgets -> \(dir.path)")
+        return true
+    }
+
     private static func render(into explicit: URL?) {
         let now = Date()
         let lang = Locale.preferredLanguages.first ?? "en"

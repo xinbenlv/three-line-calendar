@@ -3,36 +3,74 @@ import EventKit
 import WidgetKit
 
 struct SettingsView: View {
+    /// Mac embeds this inline and owns the window title ("3-Line Calendar"), so it
+    /// suppresses this view's own "Settings" title. iOS/watchOS push it, so keep it.
+    var showsTitle = true
+
     @State private var store = CalendarStore()
     @State private var calendars: [EKCalendar] = []
     @State private var selected: Set<String> = []
     @State private var message: String?
 
+    #if DEBUG
+    @State private var demoCalendars: [String] = []
+    private var screenshotMode: Bool {
+        ProcessInfo.processInfo.arguments.contains("-ScreenshotMode")
+    }
+    #endif
+
     var body: some View {
+        Group {
+            if showsTitle {
+                calendarList.navigationTitle("Settings")
+            } else {
+                calendarList
+            }
+        }
+        .task { load() }
+    }
+
+    private var calendarList: some View {
         List {
             Section("Show calendars") {
-                if calendars.isEmpty {
-                    Text("No calendars found.").foregroundStyle(.secondary)
+                #if DEBUG
+                // Screenshot mode: representative calendars in the REAL List UI
+                // (real controls, demo data — the same idea as the demo events).
+                if screenshotMode {
+                    ForEach(demoCalendars, id: \.self) { name in
+                        Toggle(name, isOn: .constant(true))
+                    }
+                } else {
+                    realCalendarRows
                 }
-                ForEach(calendars, id: \.calendarIdentifier) { cal in
-                    Toggle(cal.title, isOn: binding(for: cal))
-                }
+                #else
+                realCalendarRows
+                #endif
             }
 
             #if DEBUG
-            // Simulator has no Google account synced, so seed test events to demo the UI.
-            // Debug-only: real users should never write fake events into their widget.
-            Section("Testing") {
-                Button("Insert sample events") { insertSamples() }
-                Button("Remove sample events", role: .destructive) { removeSamples() }
-                if let message {
-                    Text(message).font(.footnote).foregroundStyle(.secondary)
+            // Dev-only QA aid; never ships (Release compiles it out) and must never
+            // appear in a screenshot, so it's also hidden in -ScreenshotMode.
+            if !screenshotMode {
+                Section("Testing") {
+                    Button("Insert sample events") { insertSamples() }
+                    Button("Remove sample events", role: .destructive) { removeSamples() }
+                    if let message {
+                        Text(message).font(.footnote).foregroundStyle(.secondary)
+                    }
                 }
             }
             #endif
         }
-        .navigationTitle("Settings")
-        .task { load() }
+    }
+
+    @ViewBuilder private var realCalendarRows: some View {
+        if calendars.isEmpty {
+            Text("No calendars found.").foregroundStyle(.secondary)
+        }
+        ForEach(calendars, id: \.calendarIdentifier) { cal in
+            Toggle(cal.title, isOn: binding(for: cal))
+        }
     }
 
     private func binding(for cal: EKCalendar) -> Binding<Bool> {
@@ -47,6 +85,15 @@ struct SettingsView: View {
     }
 
     private func load() {
+        #if DEBUG
+        // Screenshot mode: representative calendar names (localized), all enabled.
+        if screenshotMode {
+            demoCalendars = [String(localized: "Work"),
+                             String(localized: "Personal"),
+                             String(localized: "Family")]
+            return
+        }
+        #endif
         calendars = store.eventCalendars()
         if let saved = AppGroup.selectedCalendarIDs {
             selected = saved
