@@ -1,0 +1,13 @@
+A single modern silver Apple iMac (24-inch style, thin profile, aluminum stand)
+shown perfectly head-on: straight front view, no tilt, no perspective, no rotation.
+The iMac is centered and fills most of the frame, with a small even margin.
+
+Background: a completely FLAT, SOLID, UNIFORM green (#00FF00) — edge to edge, no
+gradient, no shadow, no reflection, no floor, no desk. Pure chroma-key green
+everywhere around the iMac.
+
+The entire display/screen area is a completely FLAT, SOLID, UNIFORM magenta
+rectangle (pure #FF00FF) — edge to edge of the glass, no content, no reflections,
+with the iMac's normal rounded screen corners.
+
+No text anywhere. No drop shadow. Crisp product-shot lighting on the device only.
