@@ -162,10 +162,13 @@ def main():
     # --- paint the screen content into the exact magenta shape (keeps rounded corners) ---
     placed = Image.new("RGBA", frame.size, (0, 0, 0, 0))
     placed.paste(screen, (x0, y0))
-    result = Image.composite(placed, frame.convert("RGBA"), mask).convert("RGB")
-
-    if result.size != (ow, oh):
-        result = result.resize((ow, oh), Image.LANCZOS)
+    result = Image.composite(placed, frame.convert("RGBA"), mask)
+    if args.cutout:                       # green-key the bezel bg → transparent device
+        result = cutout_green(result)
+    else:
+        result = result.convert("RGB")
+        if result.size != (ow, oh):
+            result = result.resize((ow, oh), Image.LANCZOS)
     result.save(args.out)
     print(f"wrote {args.out} ({result.width}x{result.height}); screen bbox "
           f"= ({x0},{y0})-({x1},{y1}) {sw}x{sh}")
