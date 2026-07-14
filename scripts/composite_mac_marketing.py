@@ -30,6 +30,19 @@ def magenta_mask(frame: Image.Image) -> Image.Image:
     return mask
 
 
+def cutout_green(img: Image.Image) -> Image.Image:
+    """Key out a flat green (#00FF00) background → transparent RGBA (device only)."""
+    r, g, b = img.convert("RGB").split()
+    green = ImageChops.multiply(ImageChops.multiply(
+        g.point(lambda v: 255 if v > 150 else 0),
+        r.point(lambda v: 255 if v < 130 else 0)),
+        b.point(lambda v: 255 if v < 130 else 0))
+    keep = ImageChops.invert(green).filter(ImageFilter.MinFilter(3))  # erode to kill fringe
+    out = img.convert("RGBA")
+    out.putalpha(keep)
+    return out
+
+
 def gradient(w: int, h: int, top=(38, 42, 74), bot=(18, 20, 38)) -> Image.Image:
     """A calm macOS-style vertical wallpaper gradient."""
     col = Image.new("RGB", (1, h))
@@ -65,6 +78,8 @@ def main():
     ap.add_argument("--window", help="real app window capture (rounded already)")
     ap.add_argument("--widget", help="real widget render (gets rounded corners)")
     ap.add_argument("--screenshot", help="real full-screen screenshot; fills the device screen")
+    ap.add_argument("--cutout", action="store_true",
+                    help="with --screenshot: key out a green background → transparent device PNG")
     ap.add_argument("--out", required=True)
     ap.add_argument("--out-size", default="2560x1600", help="final store size, WxH")
     ap.add_argument("--wallpaper", help="optional wallpaper image; default = gradient")
@@ -92,9 +107,13 @@ def main():
         shot = Image.open(args.screenshot).convert("RGB").resize((sw, sh), Image.LANCZOS)
         placed = Image.new("RGBA", frame.size, (0, 0, 0, 0))
         placed.paste(shot, (x0, y0))
-        result = Image.composite(placed, frame.convert("RGBA"), mask).convert("RGB")
-        if result.size != (ow, oh):
-            result = result.resize((ow, oh), Image.LANCZOS)
+        result = Image.composite(placed, frame.convert("RGBA"), mask)
+        if args.cutout:
+            result = cutout_green(result)                 # device on transparent, native size
+        else:
+            result = result.convert("RGB")
+            if result.size != (ow, oh):
+                result = result.resize((ow, oh), Image.LANCZOS)
         result.save(args.out)
         print(f"wrote {args.out} ({result.width}x{result.height}); screen bbox "
               f"= ({x0},{y0})-({x1},{y1}) {sw}x{sh}")

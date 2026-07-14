@@ -1,0 +1,13 @@
+A single modern iPad Pro (thin uniform bezels, aluminum body) in portrait orientation shown perfectly
+head-on: straight front view, no tilt, no perspective, no rotation. The iPad is
+centered and fills most of the frame, with a small even margin.
+
+Background: a completely FLAT, SOLID, UNIFORM green (#00FF00) — edge to edge, no
+gradient, no shadow, no reflection, no floor. Pure chroma-key green everywhere
+around the iPad.
+
+The entire screen/display area is a completely FLAT, SOLID, UNIFORM magenta
+rectangle (pure #FF00FF) — edge to edge of the display, no content, no status bar,
+no reflections, with the iPad's normal rounded screen corners.
+
+No text anywhere. No drop shadow. Crisp product-shot lighting on the device only.

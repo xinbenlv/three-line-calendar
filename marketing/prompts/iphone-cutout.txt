@@ -1,0 +1,14 @@
+A single modern iPhone (Pro, thin uniform bezels, titanium sides) shown perfectly
+head-on: straight front view, no tilt, no perspective, no rotation. The phone is
+centered and fills most of the frame, with a small even margin.
+
+Background: a completely FLAT, SOLID, UNIFORM green (#00FF00) — edge to edge, no
+gradient, no shadow, no reflection, no floor. Pure chroma-key green everywhere
+around the phone.
+
+The entire screen/display area is a completely FLAT, SOLID, UNIFORM magenta
+rectangle (pure #FF00FF) — edge to edge of the display, no content, no status bar,
+no reflections, with the phone's normal rounded screen corners and the pill-shaped
+Dynamic Island cutout at the top.
+
+No text anywhere. No drop shadow. Crisp product-shot lighting on the device only.
