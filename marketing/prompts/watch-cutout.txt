@@ -1,0 +1,16 @@
+A single modern Apple Watch Ultra (natural titanium case, flat sapphire display,
+Digital Crown and side button on the right edge, orange Action Button on the left
+edge) shown perfectly head-on: straight front view, no tilt, no perspective, no
+rotation. The watch is centered and fills most of the frame, with a small even
+margin. No band/strap — just the watch head.
+
+Background: a completely FLAT, SOLID, UNIFORM green (#00FF00) — edge to edge, no
+gradient, no shadow, no reflection, no floor. Pure chroma-key green everywhere
+around the watch.
+
+The entire screen/display area is a completely FLAT, SOLID, UNIFORM magenta
+rectangle (pure #FF00FF) — edge to edge of the display, no content, no time, no
+complications, no reflections, with the Apple Watch's normal rounded screen
+corners inside the black bezel.
+
+No text anywhere. No drop shadow. Crisp product-shot lighting on the device only.
