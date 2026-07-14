@@ -199,14 +199,23 @@ magenta chroma screen), `marketing/frames/wallpaper/Tahoe{Light,Dark}.png`
 (extracted from `/System/Library/.../NeptuneOneWallpaper.appex`, the real macOS
 Tahoe default). Fully deterministic, no AI at release time.
 
-**B. iPhone / iPad / Watch — gpt-image-2 (NOT yet faithful):**
+**B. iPhone / iPad — faithful composite (real screenshot into an AI frame):**
 ```
-scripts/make_screenshots.sh  →  scripts/make_marketing.sh (gpt-image-2 images.edit,
-marketing/prompts/*.txt, generates at store size per §2)  →  marketing/store/*.png
+gpt-image-2 generations  ← marketing/prompts/{iphone,ipad}-frame.txt   (one-time:
+        │  a head-on device on charcoal with a flat magenta screen)
+        ▼
+scripts/composite_mac_marketing.py --screenshot screenshots/<device>-companion.png
+        │  --frame marketing/frames/<device>-magenta.png --out-size WxH
+        ▼     the REAL screenshot fills the exact magenta screen shape. No AI repaint.
 ```
-⚠️ These currently let gpt-image-2 repaint the screen — pending the same
-faithful-composite treatment as Mac (real screenshot into an AI/plain frame).
-Requires `OPENAI_API_KEY`.
+Reusable: `marketing/frames/{iphone,ipad}-magenta.png`. The real screenshot is
+stretched to the frame's screen box — keep the AI screen aspect close to the
+device (iPhone ≈0.46, iPad =0.75) or a slight squish appears.
+
+**Watch:** the App Store watch slot (422×514) *is* the screen, so use the real
+`screenshots/watch-face-ultra.png` directly — no frame, already faithful.
+
+Requires `OPENAI_API_KEY` for the one-time frame generation only.
 
 Final store-ready images: `marketing/store/{iphone,ipad,watch,mac,mac-widget}.png`
 → `scripts/upload_screenshots.py` (fix Watch displayType per §1 before upload).

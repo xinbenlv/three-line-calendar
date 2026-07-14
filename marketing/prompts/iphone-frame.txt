@@ -1,0 +1,12 @@
+A single modern iPhone (Pro, thin uniform bezels, titanium sides) shown perfectly
+head-on: straight front view, no tilt, no perspective, no rotation. Centered with
+generous empty space around it, floating with a soft realistic drop shadow.
+
+Background: solid deep charcoal (#111114) with a very subtle darker vignette.
+
+CRITICAL: the entire screen/display area is filled with a completely FLAT, SOLID,
+UNIFORM magenta rectangle (pure #FF00FF) — edge to edge of the display, no content,
+no status bar, no reflections, no glare, no gradient, with the phone's normal
+rounded screen corners and camera/Dynamic Island cutout at the top.
+
+No text anywhere. Calm, minimal, premium.
