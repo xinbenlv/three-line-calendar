@@ -1,5 +1,6 @@
 import SwiftUI
 import EventKit
+import AppKit
 
 /// The Mac window: a live preview of exactly what the widget shows, plus
 /// calendar selection. No filler.
@@ -13,7 +14,7 @@ struct MacRootView: View {
         VStack(spacing: 16) {
             previewCard
             if authorized {
-                SettingsView()
+                SettingsView(showsTitle: false)   // window title stays "3-Line Calendar"
                     .frame(minHeight: 240)
             } else {
                 Button {
@@ -28,6 +29,7 @@ struct MacRootView: View {
         .padding(20)
         .frame(width: 420, height: 500)
         .navigationTitle(Text("3-Line Calendar"))
+        .onAppear { applyScreenshotAppearance() }
         .task { await load() }
         .onReceive(NotificationCenter.default.publisher(
             for: NSApplication.didBecomeActiveNotification)) { _ in
@@ -58,8 +60,8 @@ struct MacRootView: View {
     private func load() async {
         #if DEBUG
         WidgetRenderHarness.runIfRequested()
-        // Headless App Store screenshot render (Debug only): writes a PNG and stops.
-        if AppRenderHarness.runIfRequested() { return }
+        // Transparent, padded widget renders for the marketing compositor; then stop.
+        if WidgetRenderHarness.runMarketingIfRequested() { return }
         // Screenshot mode (Debug only, never ships): demo events for App Store captures.
         if ProcessInfo.processInfo.arguments.contains("-ScreenshotMode") {
             events = EventItem.demo(from: Date())
@@ -72,5 +74,18 @@ struct MacRootView: View {
         let all = authorized ? store.refreshSnapshot() : AppGroup.loadSnapshot()
         events = all.todaysNext(5)   // the preview mirrors the 5-line medium widget
         nextStart = all.nextUpcomingStart()
+    }
+
+    // Force light/dark for the screenshot script: `-ScreenshotAppearance light|dark`.
+    private func applyScreenshotAppearance() {
+        #if DEBUG
+        let args = ProcessInfo.processInfo.arguments
+        guard let i = args.firstIndex(of: "-ScreenshotAppearance"), i + 1 < args.count else { return }
+        switch args[i + 1] {
+        case "light": NSApp.appearance = NSAppearance(named: .aqua)
+        case "dark":  NSApp.appearance = NSAppearance(named: .darkAqua)
+        default: break
+        }
+        #endif
     }
 }

@@ -27,7 +27,6 @@
 		28C6AE30698ABA8E268BA4ED /* EventRowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312E51DD684C6C69FD81BFB5 /* EventRowsView.swift */; };
 		2FAAF4312F8F1BE4DE69ED54 /* EventRowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312E51DD684C6C69FD81BFB5 /* EventRowsView.swift */; };
 		30780C12A00B375F2ED5B3CE /* ThreeLineCalWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 6F0A6D53893244B2DDBDAAEE /* ThreeLineCalWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		317FB470B128061BFFC78E88 /* AppRenderHarness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6539B88E254C91419C600239 /* AppRenderHarness.swift */; };
 		31D7C3D6C232D046F6A699D9 /* EventEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1B71CA688C0C7A1D2DFE08 /* EventEntry.swift */; };
 		3B5202E89DFFDA4DC3CD44B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E368286A278DFDA235D7F50 /* Assets.xcassets */; };
 		3C315C0A4AB0FC540CB99CD1 /* SystemWidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE38C7A64E4697794B9C9343 /* SystemWidgetViews.swift */; };
@@ -209,7 +208,6 @@
 		5B5334C7C6BF09FE2BA895B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E368286A278DFDA235D7F50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62E797ECAFBF687437861F54 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
-		6539B88E254C91419C600239 /* AppRenderHarness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRenderHarness.swift; sourceTree = "<group>"; };
 		6D48C37B69A43CBFC8FD0464 /* WidgetHomeScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetHomeScreenTests.swift; sourceTree = "<group>"; };
 		6F0A6D53893244B2DDBDAAEE /* ThreeLineCalWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThreeLineCalWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70447B0F0287ED5638A5598B /* ThreeLineCalWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ThreeLineCalWatch.entitlements; sourceTree = "<group>"; };
@@ -244,7 +242,6 @@
 		03B50C98475F2A32D3EE0F05 /* Mac */ = {
 			isa = PBXGroup;
 			children = (
-				6539B88E254C91419C600239 /* AppRenderHarness.swift */,
 				5E368286A278DFDA235D7F50 /* Assets.xcassets */,
 				D87BAA45C01CC10B3BD28A98 /* Info.plist */,
 				7A19A60FF94B88BDF8C3DD35 /* InfoPlist.xcstrings */,
@@ -700,7 +697,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CF3FC3C51796442F08B3BBB /* AppGroup.swift in Sources */,
-				317FB470B128061BFFC78E88 /* AppRenderHarness.swift in Sources */,
 				DFFAD5CD240830F57B994286 /* CalendarStore.swift in Sources */,
 				E0ECAF4A6B6887AF0105615D /* EventEntry.swift in Sources */,
 				B507B01ED4F19A8E3EAECE57 /* EventItem.swift in Sources */,

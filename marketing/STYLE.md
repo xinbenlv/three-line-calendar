@@ -34,32 +34,33 @@ otherwise ASC rejects the upload.
 
 ---
 
-## 2. gpt-image-2 → App Store canvas fitting
+## 2. gpt-image-2 output sizes → generate at the store size
 
-`gpt-image-2` outputs only three aspect ratios (verify each session — vendors
-change these):
+`gpt-image-2` supports **custom output sizes** (NOT just 1024²/1024×1536/1536×1024
+— that was the old gpt-image-1 limit). Constraints, confirmed by probing the API
+(both `images/generations` and `images/edits`) — verify each session, vendors
+change these:
 
-| gpt-image-2 size | Ratio | Best for |
-|------------------|-------|----------|
-| `1024 x 1536`    | 2:3 (0.667) | iPhone, iPad (portrait) |
-| `1536 x 1024`    | 3:2 (1.5)   | Mac (landscape) |
-| `1024 x 1024`    | 1:1         | Watch |
+- **Width and height each divisible by 16**
+- **Longest edge ≤ 3840 px**
+- **Aspect ratio ≤ 3:1**
+- **Pixel budget ≈ 8.3 M** (2880×2880 = 8.29 M is accepted; 3200×3200 = 10.24 M is not)
 
-None match the store exactly. **Two-step pipeline:**
+So we **generate at (near-)exact store dimensions** — no letterboxing, no canvas
+extension, no distortion. Only iPhone/Watch need a sub-1% resize because their
+exact store size isn't divisible by 16:
 
-1. **Generate** the hero art at the nearest gpt size.
-2. **Place** it on the exact store canvas over a **flat/gradient background that
-   extends seamlessly** — the extra room becomes the headline zone.
+| Target (store)   | ÷16? | Generate at | Then | Note |
+|------------------|------|-------------|------|------|
+| iPad 2064×2752   | ✓ ✓  | **2064 × 2752** | — (exact) | |
+| Mac 2560×1600    | ✓ ✓  | **2560 × 1600** | — (exact) | |
+| iPhone 1320×2868 | ✗    | 1328 × 2880 | resize → 1320×2868 | scale <0.6 %, invisible |
+| Watch 422×514    | ✗    | 832 × 1024  | resize → 422×514 | gen 2× then downscale for crispness |
 
-| Target        | Store ratio | Gap vs gpt | Extend |
-|---------------|-------------|------------|--------|
-| iPhone 1320×2868 | 1 : 2.17 | very tall | big top/bottom margin → headline lives here |
-| iPad 2064×2752   | 1 : 1.33 | taller    | small top/bottom |
-| Mac 2560×1600    | 1.6 : 1  | wider     | small left/right |
-| Watch 422×514    | 1 : 1.22 | ~square   | crop/pad, ~no text room |
-
-→ **This is the #1 reason the background must be a solid color or soft gradient,
-not a photo.** It also keeps 21-locale regeneration trivial.
+Driver: `scripts/make_marketing.sh` (uses `images/edits` with the real screenshot
+as input). A flat/gradient background is still preferred — it reads as premium
+and keeps 21-locale regeneration trivial — but it is no longer *required* to
+paper over an aspect mismatch.
 
 ---
 
@@ -167,20 +168,54 @@ Output {GPT_SIZE}.
 
 ---
 
-## 7. Pipeline (kept deliberately simple)
+## 7. Faithfulness rule (non-negotiable)
 
-```
-scripts/make_screenshots.sh        # real device screenshots (already exists)
-        │
-        ▼
-gpt-image-2 images.edit  ← marketing/prompts/*.txt   (regenerate every release)
-        │
-        ▼
-place on exact store canvas + (optional) localized headline overlay
-        │
-        ▼
-scripts/upload_screenshots.py      # already exists; fix Watch displayType (§1)
-```
+**Screenshots must reflect the real app UI.** Marketing framing (background,
+device frame, wallpaper, headline) may be AI-generated or a mockup, but the
+**app's own pixels must be real** — a real capture or a real-pixel composite,
+never an AI repaint or a hand-built mockup. Two consequences learned here:
 
-Requires `OPENAI_API_KEY` (see `xinbenlv-image-gen-skill`). Gemini
-`gemini-3-pro-image` is a cheaper draft alternative but weaker at in-image text.
+- `gpt-image-2` *redraws* the screen (it even shifts demo event times), so an
+  AI-generated screenshot is **not** pixel-faithful. Fine as marketing art, but
+  for a truthful store screenshot the real screenshot must be composited in.
+- SwiftUI `ImageRenderer` cannot rasterize `List` / `Toggle(.switch)` (they come
+  out as broken boxes), so a faithful Mac screenshot needs a real running-window
+  capture, not an offscreen render.
+
+## 8. Two pipelines
+
+**A. Mac — faithful capture + deterministic composite** (current, honest):
+```
+scripts/capture_mac_screenshot.sh   # real window (screencapture), light+dark
+        │  needs Screen Recording permission for the host app; -ScreenshotMode
+        ▼     seeds demo events + demo calendars in the REAL views
+scripts/composite_mac_marketing.py  # real window/widget → iMac frame + real
+        │  macOS Tahoe wallpaper, at exact 2560x1600. --window or --widget.
+        ▼     Widget: transparent render (harness -RenderWidgetMarketing) over a
+              wallpaper-frosted material card = the authentic desktop-widget look.
+```
+Reusable assets: `marketing/frames/imac-magenta.png` (one-time AI iMac frame,
+magenta chroma screen), `marketing/frames/wallpaper/Tahoe{Light,Dark}.png`
+(extracted from `/System/Library/.../NeptuneOneWallpaper.appex`, the real macOS
+Tahoe default). Fully deterministic, no AI at release time.
+
+**B. iPhone / iPad — faithful composite (real screenshot into an AI frame):**
+```
+gpt-image-2 generations  ← marketing/prompts/{iphone,ipad}-frame.txt   (one-time:
+        │  a head-on device on charcoal with a flat magenta screen)
+        ▼
+scripts/composite_mac_marketing.py --screenshot screenshots/<device>-companion.png
+        │  --frame marketing/frames/<device>-magenta.png --out-size WxH
+        ▼     the REAL screenshot fills the exact magenta screen shape. No AI repaint.
+```
+Reusable: `marketing/frames/{iphone,ipad}-magenta.png`. The real screenshot is
+stretched to the frame's screen box — keep the AI screen aspect close to the
+device (iPhone ≈0.46, iPad =0.75) or a slight squish appears.
+
+**Watch:** the App Store watch slot (422×514) *is* the screen, so use the real
+`screenshots/watch-face-ultra.png` directly — no frame, already faithful.
+
+Requires `OPENAI_API_KEY` for the one-time frame generation only.
+
+Final store-ready images: `marketing/store/{iphone,ipad,watch,mac,mac-widget}.png`
+→ `scripts/upload_screenshots.py` (fix Watch displayType per §1 before upload).
