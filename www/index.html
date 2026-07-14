@@ -123,7 +123,9 @@
       .privacy .link { color:#2997ff; }
 
       footer { padding:25px 0; color:var(--muted); font-size:12px; }
-      .footer-inner { display:flex; justify-content:space-between; gap:20px; }
+      .footer-inner { display:flex; align-items:center; justify-content:space-between; gap:20px; }
+      .footer-links { display:flex; align-items:center; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
+      .footer-version { display:inline-flex; align-items:center; min-height:21px; padding:3px 7px; color:#6e6e73; border:1px solid var(--line); border-radius:980px; font:10px/1 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.01em; }
       footer a { text-decoration:none; } footer a:hover { text-decoration:underline; }
 
       @media (max-width:720px) {
@@ -136,7 +138,7 @@
         .feature-inner { grid-template-columns:1fr; min-height:unset; gap:0; text-align:center; } .feature-copy { margin:auto; padding:80px 0 42px; } .feature-media { width:275px; padding-top:0; }
         .platform-grid { grid-template-columns:1fr; } .platform { min-height:374px; text-align:center; } .platform-watch { width:184px; }
         .gallery { padding:0 0 84px; } .gallery-grid { grid-template-columns:1fr; } .gallery-card { min-height:445px; text-align:center; } .widget-shot { top:140px; width:320px; } .watch-app-shot { width:250px; }
-        .privacy { padding:84px 0; } .footer-inner { flex-direction:column; gap:7px; }
+        .privacy { padding:84px 0; } .footer-inner { align-items:flex-start; flex-direction:column; gap:7px; } .footer-links { justify-content:flex-start; }
       }
     </style>
   </head>
@@ -201,7 +203,7 @@
       <section class="privacy"><div class="shell"><h2>Your calendar is yours.</h2><p>3-Line Calendar does not collect, store, or transmit your personal information. Your calendar data stays on your device.</p><a class="link" href="privacy.html">Read the privacy policy&nbsp; ›</a></div></section>
     </main>
 
-    <footer><div class="shell footer-inner"><span>Copyright © 2026 Z. Victor Zhou</span><span><a href="privacy.html">Privacy</a> · <a href="https://github.com/xinbenlv/three-line-calendar">GitHub</a> · <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a></span></div></footer>
+    <footer><div class="shell footer-inner"><span>Copyright © 2026 <a href="https://zzn.im/?utm_source=threelinecal&amp;utm_medium=website&amp;utm_campaign=footer">Z. Victor Zhou</a></span><span class="footer-links"><a href="privacy.html">Privacy</a> · <a href="https://github.com/xinbenlv/three-line-calendar">GitHub</a> · <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a> <a id="deploy-version" class="footer-version" href="https://github.com/xinbenlv/three-line-calendar">v0.1.0 · source</a></span></div></footer>
     <script>
       (() => {
         const button = document.querySelector("#app-store-link");
@@ -224,6 +226,20 @@
         lookup.src = "https://itunes.apple.com/lookup?bundleId=" + encodeURIComponent(bundleId) + "&country=us&callback=" + callbackName + "&v=" + new Date().toISOString().slice(0, 10);
         lookup.onerror = () => { delete window[callbackName]; };
         document.head.appendChild(lookup);
+      })();
+
+      (() => {
+        const target = document.querySelector("#deploy-version");
+        if (!target) return;
+        fetch("versionz.json", { cache: "no-cache" })
+          .then((response) => response.ok ? response.json() : null)
+          .then((data) => {
+            if (!data || !data.version) return;
+            const commit = data.commit_hash && data.commit_hash !== "development" ? data.commit_hash.slice(0, 7) : "source";
+            target.textContent = "v" + data.version + " · " + commit;
+            if (data.commit_url) target.href = data.commit_url;
+          })
+          .catch(() => {});
       })();
     </script>
   </body>

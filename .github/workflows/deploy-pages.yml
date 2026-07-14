@@ -28,6 +28,11 @@ jobs:
         uses: actions/checkout@v4
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
+      - name: Stamp deployment version
+        env:
+          VERSION: "0.1.0"
+        run: |
+          printf '{"version":"%s","commit_hash":"%s","commit_url":"https://github.com/xinbenlv/three-line-calendar/commit/%s","stamp":"v%s-%s"}\n' "$VERSION" "$GITHUB_SHA" "$GITHUB_SHA" "$VERSION" "${GITHUB_SHA:0:7}" > www/versionz.json
       - name: Upload the portal
         uses: actions/upload-pages-artifact@v3
         with:

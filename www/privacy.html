@@ -12,7 +12,7 @@
       :root { --text:#1d1d1f; --muted:#6e6e73; --blue:#0071e3; --line:#d2d2d7; }
       * { box-sizing:border-box; } body { margin:0; color:var(--text); background:#fff; font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",sans-serif; -webkit-font-smoothing:antialiased; } a { color:var(--blue); text-underline-offset:3px; } .shell { width:min(800px,calc(100% - 44px)); margin:0 auto; }
       header { height:48px; display:flex; align-items:center; justify-content:space-between; font-size:12px; } .brand { display:inline-flex; align-items:center; gap:8px; color:var(--text); text-decoration:none; font-weight:600; } .app-icon { width:22px; height:22px; border-radius:5px; } header > a:last-child { color:var(--muted); text-decoration:none; }
-      main { padding:83px 0 114px; } .eyebrow { margin:0 0 12px; color:var(--blue); font-size:17px; font-weight:600; letter-spacing:-.02em; } h1,h2,p { margin-top:0; } h1 { max-width:680px; margin-bottom:19px; font-size:clamp(46px,7vw,72px); line-height:1.06; letter-spacing:-.055em; } .updated { margin-bottom:53px; color:var(--muted); font-size:20px; letter-spacing:-.02em; } .lead { margin-bottom:51px; font-size:24px; line-height:1.28; letter-spacing:-.03em; } .policy { border-top:1px solid var(--line); } section { padding:31px 0; border-bottom:1px solid var(--line); } h2 { margin-bottom:10px; font-size:25px; line-height:1.15; letter-spacing:-.035em; } p { max-width:675px; margin-bottom:15px; color:#424245; font-size:17px; line-height:1.58; letter-spacing:-.012em; } p:last-child { margin-bottom:0; } footer { padding:25px 0; color:var(--muted); border-top:1px solid var(--line); font-size:12px; } footer a { color:var(--muted); text-decoration:none; } footer a:hover { text-decoration:underline; } @media(max-width:600px) { .shell { width:min(100% - 32px,800px); } main { padding:59px 0 76px; } .updated { margin-bottom:37px; } .lead { font-size:21px; } }
+      main { padding:83px 0 114px; } .eyebrow { margin:0 0 12px; color:var(--blue); font-size:17px; font-weight:600; letter-spacing:-.02em; } h1,h2,p { margin-top:0; } h1 { max-width:680px; margin-bottom:19px; font-size:clamp(46px,7vw,72px); line-height:1.06; letter-spacing:-.055em; } .updated { margin-bottom:53px; color:var(--muted); font-size:20px; letter-spacing:-.02em; } .lead { margin-bottom:51px; font-size:24px; line-height:1.28; letter-spacing:-.03em; } .policy { border-top:1px solid var(--line); } section { padding:31px 0; border-bottom:1px solid var(--line); } h2 { margin-bottom:10px; font-size:25px; line-height:1.15; letter-spacing:-.035em; } p { max-width:675px; margin-bottom:15px; color:#424245; font-size:17px; line-height:1.58; letter-spacing:-.012em; } p:last-child { margin-bottom:0; } footer { padding:25px 0; color:var(--muted); border-top:1px solid var(--line); font-size:12px; } .footer-inner { display:flex; align-items:center; justify-content:space-between; gap:14px; } .footer-version { display:inline-flex; min-height:21px; padding:3px 7px; border:1px solid var(--line); border-radius:980px; font:10px/1 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.01em; } footer a { color:var(--muted); text-decoration:none; } footer a:hover { text-decoration:underline; } @media(max-width:600px) { .shell { width:min(100% - 32px,800px); } main { padding:59px 0 76px; } .updated { margin-bottom:37px; } .lead { font-size:21px; } .footer-inner { align-items:flex-start; flex-direction:column; } }
     </style>
   </head>
   <body>
@@ -29,6 +29,21 @@
         <section><h2>Contact</h2><p>Questions about this policy? Email <a href="mailto:threelinecal@zzn.im">threelinecal@zzn.im</a>.</p></section>
       </div>
     </main>
-    <footer><div class="shell">Copyright © 2026 Z. Victor Zhou · <a href="./">Home</a> · <a href="https://github.com/xinbenlv/three-line-calendar">Source</a></div></footer>
+    <footer><div class="shell footer-inner"><span>Copyright © 2026 <a href="https://zzn.im/?utm_source=threelinecal&amp;utm_medium=website&amp;utm_campaign=footer">Z. Victor Zhou</a> · <a href="./">Home</a> · <a href="https://github.com/xinbenlv/three-line-calendar">Source</a></span><a id="deploy-version" class="footer-version" href="https://github.com/xinbenlv/three-line-calendar">v0.1.0 · source</a></div></footer>
+    <script>
+      (() => {
+        const target = document.querySelector("#deploy-version");
+        if (!target) return;
+        fetch("versionz.json", { cache: "no-cache" })
+          .then((response) => response.ok ? response.json() : null)
+          .then((data) => {
+            if (!data || !data.version) return;
+            const commit = data.commit_hash && data.commit_hash !== "development" ? data.commit_hash.slice(0, 7) : "source";
+            target.textContent = "v" + data.version + " · " + commit;
+            if (data.commit_url) target.href = data.commit_url;
+          })
+          .catch(() => {});
+      })();
+    </script>
   </body>
 </html>
