@@ -10,6 +10,10 @@ struct EventRowsStyle {
     var messageFont: Font
     var rowSpacing: CGFloat
     var compactTime: Bool
+    /// Empty-state coffee cup: nil hides it; < 40 sits beside the text, ≥ 40 above it.
+    var illustrationSize: CGFloat? = nil
+    /// Ticker-scroll long titles. App processes only — WidgetKit renders are static.
+    var marqueeTitles: Bool = false
 
     /// v1 watch complication look (20/15/13pt, compact time).
     static let watchComplication = EventRowsStyle(
@@ -19,7 +23,8 @@ struct EventRowsStyle {
         emptyCaptionFont: .system(size: 13),
         messageFont: .system(size: 15),
         rowSpacing: 3,
-        compactTime: true)
+        compactTime: true,
+        illustrationSize: 22)
 
     /// In-app preview card on iPhone/iPad/Mac: same proportions, full time format.
     static let appPreview = EventRowsStyle(
@@ -29,7 +34,9 @@ struct EventRowsStyle {
         emptyCaptionFont: .system(size: 13),
         messageFont: .system(size: 15),
         rowSpacing: 8,
-        compactTime: false)
+        compactTime: false,
+        illustrationSize: 64,
+        marqueeTitles: true)
 }
 
 /// The signature "3 lines" view shared by the apps and every widget family:
@@ -60,6 +67,7 @@ struct EventRowsView: View {
 
     // One row: fixed-width non-truncating time + tail-trimmed title.
     // Title truncates with "…" at a constant size — we do NOT shrink the font to fit.
+    // App views ticker-scroll instead of truncating; the time never moves.
     private func row(_ e: EventItem) -> some View {
         HStack(alignment: .firstTextBaseline, spacing: 5) {
             Text(style.compactTime ? e.timeStringCompact : e.timeString)
@@ -67,16 +75,49 @@ struct EventRowsView: View {
                 .monospacedDigit()
                 .foregroundStyle(.secondary)
                 .fixedSize()
-            Text(e.title)
-                .font(style.titleFont)
-                .lineLimit(1)
-                .truncationMode(.tail)
+            if style.marqueeTitles {
+                MarqueeText(text: e.title)
+                    .font(style.titleFont)
+            } else {
+                Text(e.title)
+                    .font(style.titleFont)
+                    .lineLimit(1)
+                    .truncationMode(.tail)
+            }
             Spacer(minLength: 0)
         }
     }
 
-    // Centered empty state. If there's a later event, show a live localized countdown.
+    // Centered empty state, with the coffee-break cup where the style allows:
+    // beside the text when small (complication), above it when roomy. The
+    // text-only fallback keeps the longest of the 21 locales from truncating.
+    @ViewBuilder
     private var emptyState: some View {
+        Group {
+            if let size = style.illustrationSize {
+                if size >= 40 {
+                    VStack(spacing: 10) {
+                        EmptyStateIllustration(size: size)
+                        emptyText
+                    }
+                } else {
+                    ViewThatFits(in: .horizontal) {
+                        HStack(spacing: 6) {
+                            EmptyStateIllustration(size: size)
+                            emptyText
+                        }
+                        emptyText
+                    }
+                }
+            } else {
+                emptyText
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+    }
+
+    // If there's a later event, show a live localized countdown.
+    private var emptyText: some View {
         VStack(spacing: 3) {
             if let next = nextEventStart {
                 Text("No events today")
@@ -91,7 +132,6 @@ struct EventRowsView: View {
             }
         }
         .multilineTextAlignment(.center)
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
     }
 
     private func message(_ text: LocalizedStringKey) -> some View {

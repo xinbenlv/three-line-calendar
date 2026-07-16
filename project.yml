@@ -9,8 +9,8 @@ options:
 
 settings:
   base:
-    MARKETING_VERSION: "2.0.0"
-    CURRENT_PROJECT_VERSION: "3"
+    MARKETING_VERSION: "2.1.0"
+    CURRENT_PROJECT_VERSION: "4"
     SWIFT_VERSION: "5.0"
     CODE_SIGN_STYLE: Automatic
     DEVELOPMENT_TEAM: "859JWBWE5P"
@@ -108,6 +108,11 @@ targets:
         ITSAppUsesNonExemptEncryption: false
         WKApplication: true
         WKCompanionAppBundleIdentifier: im.zzn.apps.threelinecal
+        # Deep-link scheme the complication's widgetURL targets (also enables
+        # `simctl openurl` testing of the tap-through).
+        CFBundleURLTypes:
+          - CFBundleURLName: im.zzn.apps.threelinecal.watchkitapp
+            CFBundleURLSchemes: [threelinecal]
         NSCalendarsFullAccessUsageDescription: "3-Line Calendar shows your upcoming calendar events on your watch face."
         NSCalendarsUsageDescription: "3-Line Calendar shows your upcoming calendar events on your watch face."
     dependencies:

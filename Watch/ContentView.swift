@@ -25,9 +25,7 @@ struct ContentView: View {
                             Text(e.timeStringCompact)
                                 .monospacedDigit()
                                 .foregroundStyle(.secondary)
-                            Text(e.title)
-                                .lineLimit(1)
-                                .truncationMode(.tail)   // "…" — never shrink to fit
+                            MarqueeText(text: e.title)   // ticker-scrolls when long; time stays put
                         }
                         .font(.system(size: 17))
                     }
@@ -58,5 +56,7 @@ struct ContentView: View {
         if authorized { store.refreshSnapshot() }
         // Read the snapshot as the single source of truth (works offline too = "cache it").
         events = AppGroup.loadSnapshot().todaysNext(3)
+        // The first background-refresh request must come from the foreground.
+        BackgroundRefresh.schedule()
     }
 }

@@ -21,13 +21,16 @@
 		1D174AD9F5E3A488E2565926 /* EventRowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312E51DD684C6C69FD81BFB5 /* EventRowsView.swift */; };
 		1F29A76E6AA54D8D47E642CE /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B286E92C3BD1754BBCEF34F8 /* AppGroup.swift */; };
 		2272C90E8A42B9038D48FF0E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765E383D42BB4E8937A291 /* ContentView.swift */; };
+		25BCD1CBA4C6BF7CFF34AE3D /* MarqueeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692FCF5ED7DEA94A633B79DF /* MarqueeText.swift */; };
 		25F0352BD8187EC0F596C50E /* EventTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E94CC8D668E8DD8C430433 /* EventTimelineProvider.swift */; };
 		266BCAF651A3D137BA745461 /* SystemWidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE38C7A64E4697794B9C9343 /* SystemWidgetViews.swift */; };
 		272077786999B66A8C8324CD /* ThreeLineCalWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 44212F1F1708C04B894C5200 /* ThreeLineCalWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		28C6AE30698ABA8E268BA4ED /* EventRowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312E51DD684C6C69FD81BFB5 /* EventRowsView.swift */; };
+		2DAB9566BDD4D426B8CE101A /* EmptyStateIllustration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FEB3D3629DFF6A8A39B710 /* EmptyStateIllustration.swift */; };
 		2FAAF4312F8F1BE4DE69ED54 /* EventRowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312E51DD684C6C69FD81BFB5 /* EventRowsView.swift */; };
 		30780C12A00B375F2ED5B3CE /* ThreeLineCalWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 6F0A6D53893244B2DDBDAAEE /* ThreeLineCalWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		31D7C3D6C232D046F6A699D9 /* EventEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1B71CA688C0C7A1D2DFE08 /* EventEntry.swift */; };
+		3AA2FB8EEDE44DB49ADC99DE /* MarqueeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692FCF5ED7DEA94A633B79DF /* MarqueeText.swift */; };
 		3B5202E89DFFDA4DC3CD44B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E368286A278DFDA235D7F50 /* Assets.xcassets */; };
 		3C315C0A4AB0FC540CB99CD1 /* SystemWidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE38C7A64E4697794B9C9343 /* SystemWidgetViews.swift */; };
 		3CFD6F0B3F81C30E8152C91F /* EventSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCB796F8EED413FC9E2E4A7 /* EventSource.swift */; };
@@ -38,9 +41,11 @@
 		4BFECC2447F7B24F47EE419E /* SystemWidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE38C7A64E4697794B9C9343 /* SystemWidgetViews.swift */; };
 		4FA2BC6AB6548D22B097A65B /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 2DB91A3609929EE9BB9EF756 /* Localizable.xcstrings */; };
 		503BB893B43D92906CB14BE2 /* ThreeLineCalSystemWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E6A2121FEDD67006F286D6 /* ThreeLineCalSystemWidget.swift */; };
+		5162D42573CD75AA7CDD51DD /* EmptyStateIllustration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FEB3D3629DFF6A8A39B710 /* EmptyStateIllustration.swift */; };
 		588C309D3E54B0242DDF953E /* ThreeLineCalMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8F1C3A8A64FE5F540A458C /* ThreeLineCalMacApp.swift */; };
 		588FE684CA685C00702B2330 /* EventTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E94CC8D668E8DD8C430433 /* EventTimelineProvider.swift */; };
 		5D9F91B16556886CEF6758BF /* ThreeLineCalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390410D7178A091E6418377A /* ThreeLineCalApp.swift */; };
+		5ED4F015E94F91A8F5AAA9AE /* MarqueeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692FCF5ED7DEA94A633B79DF /* MarqueeText.swift */; };
 		6022F55E2F1751422CA2C56A /* ThreeLineCalMacWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B4D9DDB5A9BBCB4970C96963 /* ThreeLineCalMacWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6086955D7B54B1450D5E87A5 /* EventEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1B71CA688C0C7A1D2DFE08 /* EventEntry.swift */; };
 		61C77ADB7DDB5F753D93E6D8 /* WidgetRenderHarness.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B2CED1D69840FCFD4C1FBF /* WidgetRenderHarness.swift */; };
@@ -50,10 +55,14 @@
 		6DC7855A4AE0E998A3A8AE01 /* CalendarStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03528A3C5E0775B20DD93D86 /* CalendarStore.swift */; };
 		6E9EFA6841D68CE9C42E7D1A /* EventEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1B71CA688C0C7A1D2DFE08 /* EventEntry.swift */; };
 		72DF9F4124E222CDE2003648 /* EventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86737C21034CE015CAF1327 /* EventItem.swift */; };
+		78691F21F3E8D3A4B6E56F0E /* EmptyStateIllustration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FEB3D3629DFF6A8A39B710 /* EmptyStateIllustration.swift */; };
 		7CF3FC3C51796442F08B3BBB /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B286E92C3BD1754BBCEF34F8 /* AppGroup.swift */; };
 		7D19516F1C147FFA60BA3D1D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B47F4B9B90B96E3FD2F2EF /* SettingsView.swift */; };
+		7DBB79B536A52617D5860A26 /* EmptyStateIllustration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FEB3D3629DFF6A8A39B710 /* EmptyStateIllustration.swift */; };
 		80BEE7290510005B824EED8D /* CalendarStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03528A3C5E0775B20DD93D86 /* CalendarStore.swift */; };
+		8486D190570C10EA8ECD9F5F /* BackgroundRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37335AC9EC7C56DC1DA486BA /* BackgroundRefresh.swift */; };
 		89BCD043E201FE386C9765C5 /* ThreeLineCalSystemWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E6A2121FEDD67006F286D6 /* ThreeLineCalSystemWidget.swift */; };
+		8D33293182136ECF23DBBCE1 /* MarqueeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692FCF5ED7DEA94A633B79DF /* MarqueeText.swift */; };
 		9050699E3554FBC9FA65548E /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 62E797ECAFBF687437861F54 /* InfoPlist.xcstrings */; };
 		97FFEBE0157F612853697085 /* ThreeLineCalComplication.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E8B1A7F4394B6D7781ED804B /* ThreeLineCalComplication.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9DCBE8A5314F905331889456 /* CalendarStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03528A3C5E0775B20DD93D86 /* CalendarStore.swift */; };
@@ -67,6 +76,7 @@
 		B85E30C63F46205CA329E10F /* EventSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCB796F8EED413FC9E2E4A7 /* EventSource.swift */; };
 		B92B188BCDB240CA50959D0F /* EventRowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312E51DD684C6C69FD81BFB5 /* EventRowsView.swift */; };
 		BCC1CF251F3CAE9CF68B8B3C /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E4D002E76D8133241B85C27D /* InfoPlist.xcstrings */; };
+		BDF2A77D99F432DC237BDE51 /* MarqueeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692FCF5ED7DEA94A633B79DF /* MarqueeText.swift */; };
 		C18178FDCD8BD257CED66381 /* CalendarStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03528A3C5E0775B20DD93D86 /* CalendarStore.swift */; };
 		C25829BE5DDD6A0A479A3D4E /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 2DB91A3609929EE9BB9EF756 /* Localizable.xcstrings */; };
 		C267296C415FC55630A8356D /* EventSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCB796F8EED413FC9E2E4A7 /* EventSource.swift */; };
@@ -86,13 +96,16 @@
 		DF196BC6D2A19417F0D08E87 /* MacRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B4E12FA84521446742DB2B /* MacRootView.swift */; };
 		DFFAD5CD240830F57B994286 /* CalendarStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03528A3C5E0775B20DD93D86 /* CalendarStore.swift */; };
 		E0ECAF4A6B6887AF0105615D /* EventEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1B71CA688C0C7A1D2DFE08 /* EventEntry.swift */; };
+		E303003F49427409697B4838 /* MarqueeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692FCF5ED7DEA94A633B79DF /* MarqueeText.swift */; };
 		E43045B44AC7E1908A79EAA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3649F49836D368CE8E998D0E /* Assets.xcassets */; };
 		EA198E6D46216F7301304085 /* EventRowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312E51DD684C6C69FD81BFB5 /* EventRowsView.swift */; };
 		EAD13BD31A52CF4ACFE53B23 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 02CD29EDA6E4A913A5695BCA /* InfoPlist.xcstrings */; };
 		EB92043DC11FE6C8B4DA9374 /* ThreeLineCalSystemWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E6A2121FEDD67006F286D6 /* ThreeLineCalSystemWidget.swift */; };
+		ED18850069D9C8ED6285EF2E /* EmptyStateIllustration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FEB3D3629DFF6A8A39B710 /* EmptyStateIllustration.swift */; };
 		ED84C14CE70DEA26383E942B /* WidgetRenderHarness.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B2CED1D69840FCFD4C1FBF /* WidgetRenderHarness.swift */; };
 		F1984A8E2F5F5DE7077A47CC /* ThreeLineCalSystemWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E6A2121FEDD67006F286D6 /* ThreeLineCalSystemWidget.swift */; };
 		F24AE484358914E7E48FB9CF /* EventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86737C21034CE015CAF1327 /* EventItem.swift */; };
+		F35358D934B57C9BAEC84CD7 /* EmptyStateIllustration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FEB3D3629DFF6A8A39B710 /* EmptyStateIllustration.swift */; };
 		F6BB0328E8A36E643366A141 /* WidgetRenderHarness.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B2CED1D69840FCFD4C1FBF /* WidgetRenderHarness.swift */; };
 		F7D7E5B684E9DEF6494A6C13 /* EventSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCB796F8EED413FC9E2E4A7 /* EventSource.swift */; };
 		F8D2A306A65A7D143F584765 /* EventTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E94CC8D668E8DD8C430433 /* EventTimelineProvider.swift */; };
@@ -186,6 +199,7 @@
 
 /* Begin PBXFileReference section */
 		02CD29EDA6E4A913A5695BCA /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		02FEB3D3629DFF6A8A39B710 /* EmptyStateIllustration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateIllustration.swift; sourceTree = "<group>"; };
 		03528A3C5E0775B20DD93D86 /* CalendarStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarStore.swift; sourceTree = "<group>"; };
 		07B4E12FA84521446742DB2B /* MacRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacRootView.swift; sourceTree = "<group>"; };
 		0A7DC26C2874BFCA9BFFFF09 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -200,6 +214,7 @@
 		3168B28604970C5D3E567215 /* RevealWidgetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealWidgetTests.swift; sourceTree = "<group>"; };
 		35E6A2121FEDD67006F286D6 /* ThreeLineCalSystemWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeLineCalSystemWidget.swift; sourceTree = "<group>"; };
 		3649F49836D368CE8E998D0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		37335AC9EC7C56DC1DA486BA /* BackgroundRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundRefresh.swift; sourceTree = "<group>"; };
 		3852F226B04C400A1A560B5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		390410D7178A091E6418377A /* ThreeLineCalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeLineCalApp.swift; sourceTree = "<group>"; };
 		44212F1F1708C04B894C5200 /* ThreeLineCalWidget.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = ThreeLineCalWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,6 +223,7 @@
 		5B5334C7C6BF09FE2BA895B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E368286A278DFDA235D7F50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62E797ECAFBF687437861F54 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		692FCF5ED7DEA94A633B79DF /* MarqueeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarqueeText.swift; sourceTree = "<group>"; };
 		6D48C37B69A43CBFC8FD0464 /* WidgetHomeScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetHomeScreenTests.swift; sourceTree = "<group>"; };
 		6F0A6D53893244B2DDBDAAEE /* ThreeLineCalWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThreeLineCalWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70447B0F0287ED5638A5598B /* ThreeLineCalWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ThreeLineCalWatch.entitlements; sourceTree = "<group>"; };
@@ -322,9 +338,11 @@
 			children = (
 				B286E92C3BD1754BBCEF34F8 /* AppGroup.swift */,
 				03528A3C5E0775B20DD93D86 /* CalendarStore.swift */,
+				02FEB3D3629DFF6A8A39B710 /* EmptyStateIllustration.swift */,
 				B86737C21034CE015CAF1327 /* EventItem.swift */,
 				312E51DD684C6C69FD81BFB5 /* EventRowsView.swift */,
 				2DB91A3609929EE9BB9EF756 /* Localizable.xcstrings */,
+				692FCF5ED7DEA94A633B79DF /* MarqueeText.swift */,
 				C8B47F4B9B90B96E3FD2F2EF /* SettingsView.swift */,
 			);
 			path = Shared;
@@ -334,6 +352,7 @@
 			isa = PBXGroup;
 			children = (
 				5B5334C7C6BF09FE2BA895B1 /* Assets.xcassets */,
+				37335AC9EC7C56DC1DA486BA /* BackgroundRefresh.swift */,
 				BC765E383D42BB4E8937A291 /* ContentView.swift */,
 				1C21994DA6DC2A3483342B85 /* Info.plist */,
 				62E797ECAFBF687437861F54 /* InfoPlist.xcstrings */,
@@ -664,10 +683,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				057F1011AE9F8363E7F3102C /* AppGroup.swift in Sources */,
+				8486D190570C10EA8ECD9F5F /* BackgroundRefresh.swift in Sources */,
 				9DCBE8A5314F905331889456 /* CalendarStore.swift in Sources */,
 				2272C90E8A42B9038D48FF0E /* ContentView.swift in Sources */,
+				F35358D934B57C9BAEC84CD7 /* EmptyStateIllustration.swift in Sources */,
 				A3D2A959D1CE10C7CA49D8F9 /* EventItem.swift in Sources */,
 				28C6AE30698ABA8E268BA4ED /* EventRowsView.swift in Sources */,
+				8D33293182136ECF23DBBCE1 /* MarqueeText.swift in Sources */,
 				CBDE068780B139E921DCB632 /* SettingsView.swift in Sources */,
 				C666AF793E9F929FC907BE0D /* ThreeLineCalWatchApp.swift in Sources */,
 			);
@@ -679,11 +701,13 @@
 			files = (
 				1F29A76E6AA54D8D47E642CE /* AppGroup.swift in Sources */,
 				03EABB68B0082CA8420B0E07 /* CalendarStore.swift in Sources */,
+				78691F21F3E8D3A4B6E56F0E /* EmptyStateIllustration.swift in Sources */,
 				6E9EFA6841D68CE9C42E7D1A /* EventEntry.swift in Sources */,
 				72DF9F4124E222CDE2003648 /* EventItem.swift in Sources */,
 				2FAAF4312F8F1BE4DE69ED54 /* EventRowsView.swift in Sources */,
 				3CFD6F0B3F81C30E8152C91F /* EventSource.swift in Sources */,
 				588FE684CA685C00702B2330 /* EventTimelineProvider.swift in Sources */,
+				25BCD1CBA4C6BF7CFF34AE3D /* MarqueeText.swift in Sources */,
 				7D19516F1C147FFA60BA3D1D /* SettingsView.swift in Sources */,
 				3C315C0A4AB0FC540CB99CD1 /* SystemWidgetViews.swift in Sources */,
 				669F96D8D97570A2AF015217 /* ThreeLineCalMacWidgetBundle.swift in Sources */,
@@ -698,12 +722,14 @@
 			files = (
 				7CF3FC3C51796442F08B3BBB /* AppGroup.swift in Sources */,
 				DFFAD5CD240830F57B994286 /* CalendarStore.swift in Sources */,
+				7DBB79B536A52617D5860A26 /* EmptyStateIllustration.swift in Sources */,
 				E0ECAF4A6B6887AF0105615D /* EventEntry.swift in Sources */,
 				B507B01ED4F19A8E3EAECE57 /* EventItem.swift in Sources */,
 				EA198E6D46216F7301304085 /* EventRowsView.swift in Sources */,
 				D40D8D042C05B2882FA0002B /* EventSource.swift in Sources */,
 				25F0352BD8187EC0F596C50E /* EventTimelineProvider.swift in Sources */,
 				DF196BC6D2A19417F0D08E87 /* MacRootView.swift in Sources */,
+				5ED4F015E94F91A8F5AAA9AE /* MarqueeText.swift in Sources */,
 				0D0C5CDC2569DA9B776F2567 /* SettingsView.swift in Sources */,
 				FAC0AAC4EB37CE22A6A3C196 /* SystemWidgetViews.swift in Sources */,
 				588C309D3E54B0242DDF953E /* ThreeLineCalMacApp.swift in Sources */,
@@ -719,11 +745,13 @@
 				D2CA294C7D279F15B8B2DA3A /* AppGroup.swift in Sources */,
 				C18178FDCD8BD257CED66381 /* CalendarStore.swift in Sources */,
 				4A0B350B3D5A6DFA86B28CB7 /* ComplicationWidget.swift in Sources */,
+				2DAB9566BDD4D426B8CE101A /* EmptyStateIllustration.swift in Sources */,
 				195F6D40E035AD35FB389FF6 /* EventEntry.swift in Sources */,
 				68435F32131EE69C592639F2 /* EventItem.swift in Sources */,
 				1B6566088AAFA036889C2B86 /* EventRowsView.swift in Sources */,
 				B85E30C63F46205CA329E10F /* EventSource.swift in Sources */,
 				F8D2A306A65A7D143F584765 /* EventTimelineProvider.swift in Sources */,
+				BDF2A77D99F432DC237BDE51 /* MarqueeText.swift in Sources */,
 				1CAF007F2C18AA10A72454B4 /* SettingsView.swift in Sources */,
 				1023C6D3165C3F3EB41E1FD8 /* SystemWidgetViews.swift in Sources */,
 				CE37DA0B95594C5999EF9A3A /* ThreeLineCalSystemWidget.swift in Sources */,
@@ -737,11 +765,13 @@
 			files = (
 				10BE7FC176F1B6CD9A709335 /* AppGroup.swift in Sources */,
 				80BEE7290510005B824EED8D /* CalendarStore.swift in Sources */,
+				5162D42573CD75AA7CDD51DD /* EmptyStateIllustration.swift in Sources */,
 				6086955D7B54B1450D5E87A5 /* EventEntry.swift in Sources */,
 				A70F857FA451BD1EF5FF2336 /* EventItem.swift in Sources */,
 				1D174AD9F5E3A488E2565926 /* EventRowsView.swift in Sources */,
 				C267296C415FC55630A8356D /* EventSource.swift in Sources */,
 				C926E5B0A8FF9DB0390EDCB9 /* EventTimelineProvider.swift in Sources */,
+				E303003F49427409697B4838 /* MarqueeText.swift in Sources */,
 				CBB6452FA7EA9D4C5EEEDCBC /* RootView.swift in Sources */,
 				C6A6FCF72673B8B8C79D3AF0 /* SettingsView.swift in Sources */,
 				4BFECC2447F7B24F47EE419E /* SystemWidgetViews.swift in Sources */,
@@ -766,11 +796,13 @@
 			files = (
 				A403A54336902E0C4BC80F01 /* AppGroup.swift in Sources */,
 				6DC7855A4AE0E998A3A8AE01 /* CalendarStore.swift in Sources */,
+				ED18850069D9C8ED6285EF2E /* EmptyStateIllustration.swift in Sources */,
 				31D7C3D6C232D046F6A699D9 /* EventEntry.swift in Sources */,
 				F24AE484358914E7E48FB9CF /* EventItem.swift in Sources */,
 				B92B188BCDB240CA50959D0F /* EventRowsView.swift in Sources */,
 				F7D7E5B684E9DEF6494A6C13 /* EventSource.swift in Sources */,
 				DBBD43B8385638467696FC07 /* EventTimelineProvider.swift in Sources */,
+				3AA2FB8EEDE44DB49ADC99DE /* MarqueeText.swift in Sources */,
 				D09BDBEEF8785B42C9A3FEF0 /* SettingsView.swift in Sources */,
 				266BCAF651A3D137BA745461 /* SystemWidgetViews.swift in Sources */,
 				503BB893B43D92906CB14BE2 /* ThreeLineCalSystemWidget.swift in Sources */,
@@ -1050,7 +1082,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 859JWBWE5P;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1071,7 +1103,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1119,7 +1151,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 859JWBWE5P;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1134,7 +1166,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";

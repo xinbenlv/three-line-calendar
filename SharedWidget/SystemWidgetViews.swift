@@ -12,7 +12,8 @@ extension EventRowsStyle {
         emptyCaptionFont: .system(size: 12),
         messageFont: .system(size: 13),
         rowSpacing: 1,
-        compactTime: true)
+        compactTime: true,
+        illustrationSize: 18)
 
     /// Home-screen small: three tight rows under a "Today" header (also StandBy).
     static let systemSmall = EventRowsStyle(
@@ -22,7 +23,8 @@ extension EventRowsStyle {
         emptyCaptionFont: .system(size: 12),
         messageFont: .system(size: 13),
         rowSpacing: 8,
-        compactTime: true)
+        compactTime: true,
+        illustrationSize: 32)
 
     /// Home-screen medium — the flagship, mirrors the watch look.
     /// Spacing sized so 5 rows fit the standard medium height.
@@ -33,7 +35,8 @@ extension EventRowsStyle {
         emptyCaptionFont: .system(size: 13),
         messageFont: .system(size: 15),
         rowSpacing: 6,
-        compactTime: false)
+        compactTime: false,
+        illustrationSize: 48)
 
     /// Desktop large (macOS): medium at larger type.
     static let systemLarge = EventRowsStyle(
@@ -43,7 +46,8 @@ extension EventRowsStyle {
         emptyCaptionFont: .system(size: 15),
         messageFont: .system(size: 17),
         rowSpacing: 14,
-        compactTime: false)
+        compactTime: false,
+        illustrationSize: 72)
 }
 
 /// Family-aware layouts for the iOS/iPad/macOS widget.
