@@ -64,8 +64,7 @@ struct SettingsView: View {
 
             Section("About") {
                 aboutRow("Version", BuildInfo.versionString)
-                aboutRow("Build date",
-                         BuildInfo.buildDate?.formatted(date: .abbreviated, time: .shortened) ?? "—")
+                aboutRow("Build date", BuildInfo.buildDateISO ?? "—")
             }
         }
     }

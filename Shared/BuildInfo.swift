@@ -20,7 +20,8 @@ enum BuildInfo {
         return "v\(v)-\(info["GitCommit"] ?? "dev")"
     }
 
-    static var buildDate: Date? {
-        info["BuildDate"].flatMap { ISO8601DateFormatter().date(from: $0) }
+    /// ISO 8601 UTC, exactly as the build phase stamped it (e.g. "2026-07-17T00:14:35Z").
+    static var buildDateISO: String? {
+        info["BuildDate"]
     }
 }
