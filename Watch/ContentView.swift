@@ -9,7 +9,7 @@ struct ContentView: View {
         NavigationStack {
             List {
                 if !authorized && events.isEmpty {
-                    Button("Grant Calendar Access") { Task { await grant() } }
+                    Button("Continue") { Task { await grant() } }
                         .font(.footnote)
                 }
                 if events.isEmpty {

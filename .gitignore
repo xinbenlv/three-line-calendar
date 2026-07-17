@@ -1,6 +1,9 @@
 # Secrets / credentials — never commit
 .creds/
 *.p8
+.env
+.env.*
+.env.local
 
 # macOS
 .DS_Store
