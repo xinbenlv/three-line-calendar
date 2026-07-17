@@ -11,6 +11,9 @@ struct ThreeLineCalComplicationView: View {
                       hasData: entry.hasData,
                       style: .watchComplication)
             .containerBackground(.clear, for: .widget)
+            // Explicit launch intent: without a widgetURL some watchOS builds
+            // drop the implicit tap→app association and taps do nothing.
+            .widgetURL(URL(string: "threelinecal://face")!)
     }
 }
 
