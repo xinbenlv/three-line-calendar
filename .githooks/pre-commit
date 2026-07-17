@@ -1,0 +1,17 @@
+#!/bin/sh
+# pre-commit: scan staged changes for secrets with gitleaks.
+# Wire up once per clone: git config core.hooksPath .githooks
+
+if command -v gitleaks >/dev/null 2>&1; then
+  if ! gitleaks git --pre-commit --staged --redact --no-banner .; then
+    echo ""
+    echo "❌ gitleaks found potential secrets in staged files."
+    echo "   Review the output above, remove the secret, then re-stage."
+    echo "   False positive? Add a fingerprint line to .gitleaksignore."
+    echo "   Bypass (DANGEROUS): git commit --no-verify"
+    exit 1
+  fi
+else
+  echo "⚠️  gitleaks not found — skipping secret scan."
+  echo "   Install with: brew install gitleaks"
+fi
