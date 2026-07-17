@@ -9,13 +9,15 @@ options:
 
 settings:
   base:
-    MARKETING_VERSION: "2.1.0"
-    CURRENT_PROJECT_VERSION: "4"
+    MARKETING_VERSION: "2.1.1"
+    CURRENT_PROJECT_VERSION: "5"
     SWIFT_VERSION: "5.0"
     CODE_SIGN_STYLE: Automatic
     DEVELOPMENT_TEAM: "859JWBWE5P"
     # Extract SwiftUI/String(localized:) keys during builds so the string catalog stays in sync.
     SWIFT_EMIT_LOC_STRINGS: YES
+    # The Generate BuildInfo script phase reads .git — the script sandbox blocks that.
+    ENABLE_USER_SCRIPT_SANDBOXING: NO
 
 # Declaring any scheme disables Xcode's auto-created ones, so declare them all.
 schemes:
@@ -83,6 +85,18 @@ targets:
         embed: true
       - target: ThreeLineCalWidget
         embed: true
+    postCompileScripts:
+      # Bakes the commit + timestamp shown in Settings -> About into the bundle.
+      - &buildInfoScript
+        name: Generate BuildInfo
+        script: |
+          SHA=$(cd "$SRCROOT" && git rev-parse --short=6 HEAD 2>/dev/null || echo dev)
+          PLIST="$BUILT_PRODUCTS_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/BuildInfo.plist"
+          mkdir -p "$(dirname "$PLIST")"
+          printf '<?xml version="1.0" encoding="UTF-8"?>\n<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">\n<plist version="1.0"><dict>\n<key>GitCommit</key><string>%s</string>\n<key>BuildDate</key><string>%s</string>\n</dict></plist>\n' "$SHA" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > "$PLIST"
+        outputFiles:
+          - $(BUILT_PRODUCTS_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/BuildInfo.plist
+        basedOnDependencyAnalysis: false
 
   # watchOS app — embedded in the iOS app
   ThreeLineCalWatch:
@@ -118,6 +132,7 @@ targets:
     dependencies:
       - target: ThreeLineCalComplication
         embed: true
+    postCompileScripts: [*buildInfoScript]
 
   # iOS/iPadOS home-screen + lock-screen widget — embedded in the iOS app
   ThreeLineCalWidget:
@@ -174,6 +189,7 @@ targets:
     dependencies:
       - target: ThreeLineCalMacWidget
         embed: true
+    postCompileScripts: [*buildInfoScript]
 
   # macOS desktop/Notification Center widget — embedded in the Mac app
   ThreeLineCalMacWidget:

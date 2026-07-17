@@ -61,7 +61,25 @@ struct SettingsView: View {
                 }
             }
             #endif
+
+            Section("About") {
+                aboutRow("Version", BuildInfo.versionString)
+                aboutRow("Build date",
+                         BuildInfo.buildDate?.formatted(date: .abbreviated, time: .shortened) ?? "—")
+            }
         }
+    }
+
+    // The watch screen is too narrow for label + value side by side; stack there.
+    private func aboutRow(_ label: LocalizedStringKey, _ value: String) -> some View {
+        #if os(watchOS)
+        VStack(alignment: .leading, spacing: 2) {
+            Text(label)
+            Text(value).font(.footnote).foregroundStyle(.secondary)
+        }
+        #else
+        LabeledContent(label) { Text(value) }
+        #endif
     }
 
     @ViewBuilder private var realCalendarRows: some View {

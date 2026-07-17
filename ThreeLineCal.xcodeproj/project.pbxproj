@@ -10,6 +10,7 @@
 		03E1CB9BD0F8A41420192D5F /* WidgetRenderHarness.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B2CED1D69840FCFD4C1FBF /* WidgetRenderHarness.swift */; };
 		03EABB68B0082CA8420B0E07 /* CalendarStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03528A3C5E0775B20DD93D86 /* CalendarStore.swift */; };
 		057F1011AE9F8363E7F3102C /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B286E92C3BD1754BBCEF34F8 /* AppGroup.swift */; };
+		05ABA80B34BC61ACF568898C /* BuildInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0248E33C7D68D9E00EC9FCC1 /* BuildInfo.swift */; };
 		07630B130A108DDA45C4F9A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B5334C7C6BF09FE2BA895B1 /* Assets.xcassets */; };
 		0BE906462856D93F05504A6C /* ThreeLineCalWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2527F570307C7B77567F31 /* ThreeLineCalWidgetBundle.swift */; };
 		0D0C5CDC2569DA9B776F2567 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B47F4B9B90B96E3FD2F2EF /* SettingsView.swift */; };
@@ -20,6 +21,7 @@
 		1CAF007F2C18AA10A72454B4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B47F4B9B90B96E3FD2F2EF /* SettingsView.swift */; };
 		1D174AD9F5E3A488E2565926 /* EventRowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312E51DD684C6C69FD81BFB5 /* EventRowsView.swift */; };
 		1F29A76E6AA54D8D47E642CE /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B286E92C3BD1754BBCEF34F8 /* AppGroup.swift */; };
+		2256B81E74129754B0BA9D23 /* BuildInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0248E33C7D68D9E00EC9FCC1 /* BuildInfo.swift */; };
 		2272C90E8A42B9038D48FF0E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC765E383D42BB4E8937A291 /* ContentView.swift */; };
 		25BCD1CBA4C6BF7CFF34AE3D /* MarqueeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692FCF5ED7DEA94A633B79DF /* MarqueeText.swift */; };
 		25F0352BD8187EC0F596C50E /* EventTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E94CC8D668E8DD8C430433 /* EventTimelineProvider.swift */; };
@@ -55,6 +57,7 @@
 		6DC7855A4AE0E998A3A8AE01 /* CalendarStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03528A3C5E0775B20DD93D86 /* CalendarStore.swift */; };
 		6E9EFA6841D68CE9C42E7D1A /* EventEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1B71CA688C0C7A1D2DFE08 /* EventEntry.swift */; };
 		72DF9F4124E222CDE2003648 /* EventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86737C21034CE015CAF1327 /* EventItem.swift */; };
+		75007885E1AE1777C4C9B4C0 /* BuildInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0248E33C7D68D9E00EC9FCC1 /* BuildInfo.swift */; };
 		78691F21F3E8D3A4B6E56F0E /* EmptyStateIllustration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FEB3D3629DFF6A8A39B710 /* EmptyStateIllustration.swift */; };
 		7CF3FC3C51796442F08B3BBB /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B286E92C3BD1754BBCEF34F8 /* AppGroup.swift */; };
 		7D19516F1C147FFA60BA3D1D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B47F4B9B90B96E3FD2F2EF /* SettingsView.swift */; };
@@ -64,6 +67,7 @@
 		89BCD043E201FE386C9765C5 /* ThreeLineCalSystemWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E6A2121FEDD67006F286D6 /* ThreeLineCalSystemWidget.swift */; };
 		8D33293182136ECF23DBBCE1 /* MarqueeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692FCF5ED7DEA94A633B79DF /* MarqueeText.swift */; };
 		9050699E3554FBC9FA65548E /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 62E797ECAFBF687437861F54 /* InfoPlist.xcstrings */; };
+		95915A526EA054D1F8C2C8A3 /* BuildInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0248E33C7D68D9E00EC9FCC1 /* BuildInfo.swift */; };
 		97FFEBE0157F612853697085 /* ThreeLineCalComplication.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E8B1A7F4394B6D7781ED804B /* ThreeLineCalComplication.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9DCBE8A5314F905331889456 /* CalendarStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03528A3C5E0775B20DD93D86 /* CalendarStore.swift */; };
 		A3D2A959D1CE10C7CA49D8F9 /* EventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86737C21034CE015CAF1327 /* EventItem.swift */; };
@@ -98,8 +102,10 @@
 		E0ECAF4A6B6887AF0105615D /* EventEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1B71CA688C0C7A1D2DFE08 /* EventEntry.swift */; };
 		E303003F49427409697B4838 /* MarqueeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692FCF5ED7DEA94A633B79DF /* MarqueeText.swift */; };
 		E43045B44AC7E1908A79EAA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3649F49836D368CE8E998D0E /* Assets.xcassets */; };
+		E5747111BD018D42DE25FAB4 /* BuildInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0248E33C7D68D9E00EC9FCC1 /* BuildInfo.swift */; };
 		EA198E6D46216F7301304085 /* EventRowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312E51DD684C6C69FD81BFB5 /* EventRowsView.swift */; };
 		EAD13BD31A52CF4ACFE53B23 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 02CD29EDA6E4A913A5695BCA /* InfoPlist.xcstrings */; };
+		EB60C4E5EDEF9CB64099DB50 /* BuildInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0248E33C7D68D9E00EC9FCC1 /* BuildInfo.swift */; };
 		EB92043DC11FE6C8B4DA9374 /* ThreeLineCalSystemWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E6A2121FEDD67006F286D6 /* ThreeLineCalSystemWidget.swift */; };
 		ED18850069D9C8ED6285EF2E /* EmptyStateIllustration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FEB3D3629DFF6A8A39B710 /* EmptyStateIllustration.swift */; };
 		ED84C14CE70DEA26383E942B /* WidgetRenderHarness.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B2CED1D69840FCFD4C1FBF /* WidgetRenderHarness.swift */; };
@@ -198,6 +204,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0248E33C7D68D9E00EC9FCC1 /* BuildInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildInfo.swift; sourceTree = "<group>"; };
 		02CD29EDA6E4A913A5695BCA /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		02FEB3D3629DFF6A8A39B710 /* EmptyStateIllustration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateIllustration.swift; sourceTree = "<group>"; };
 		03528A3C5E0775B20DD93D86 /* CalendarStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarStore.swift; sourceTree = "<group>"; };
@@ -337,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				B286E92C3BD1754BBCEF34F8 /* AppGroup.swift */,
+				0248E33C7D68D9E00EC9FCC1 /* BuildInfo.swift */,
 				03528A3C5E0775B20DD93D86 /* CalendarStore.swift */,
 				02FEB3D3629DFF6A8A39B710 /* EmptyStateIllustration.swift */,
 				B86737C21034CE015CAF1327 /* EventItem.swift */,
@@ -403,6 +411,7 @@
 			buildConfigurationList = 45920096A7E458E11E47AA84 /* Build configuration list for PBXNativeTarget "ThreeLineCalWatch" */;
 			buildPhases = (
 				0175841AC59FE52D5A770F81 /* Sources */,
+				E17592A6E92526124A2DB468 /* Generate BuildInfo */,
 				E23DB5424EB139D47AB630AE /* Resources */,
 				D9864BBEE3F3E918C5959FB0 /* Embed Foundation Extensions */,
 			);
@@ -441,6 +450,7 @@
 			buildConfigurationList = B8969767E0589FC5C3FAC4C9 /* Build configuration list for PBXNativeTarget "ThreeLineCal" */;
 			buildPhases = (
 				C4B5BE4C633ABE7056C75BB8 /* Sources */,
+				52B6E3ADC0615806ABC8F537 /* Generate BuildInfo */,
 				43BA8CF4F1A3EA9E3381D0E8 /* Resources */,
 				9544CF49D87D4D3ECE0B03AF /* Embed Foundation Extensions */,
 				0066CF22D7EF4C3B814601D0 /* Embed Watch Content */,
@@ -481,6 +491,7 @@
 			buildConfigurationList = F055C0010692D375B6788D12 /* Build configuration list for PBXNativeTarget "ThreeLineCalMac" */;
 			buildPhases = (
 				30585F157EC46E065930B22F /* Sources */,
+				A0187D45015CF5839E4447AE /* Generate BuildInfo */,
 				D5D475F1F5DEA8067558020D /* Resources */,
 				6557B8DF8339A696E2A8874F /* Embed Foundation Extensions */,
 			);
@@ -677,6 +688,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		52B6E3ADC0615806ABC8F537 /* Generate BuildInfo */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Generate BuildInfo";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/BuildInfo.plist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "SHA=$(cd \"$SRCROOT\" && git rev-parse --short=6 HEAD 2>/dev/null || echo dev)\nPLIST=\"$BUILT_PRODUCTS_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/BuildInfo.plist\"\nmkdir -p \"$(dirname \"$PLIST\")\"\nprintf '<?xml version=\"1.0\" encoding=\"UTF-8\"?>\\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\\n<plist version=\"1.0\"><dict>\\n<key>GitCommit</key><string>%s</string>\\n<key>BuildDate</key><string>%s</string>\\n</dict></plist>\\n' \"$SHA\" \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\" > \"$PLIST\"\n";
+		};
+		A0187D45015CF5839E4447AE /* Generate BuildInfo */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Generate BuildInfo";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/BuildInfo.plist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "SHA=$(cd \"$SRCROOT\" && git rev-parse --short=6 HEAD 2>/dev/null || echo dev)\nPLIST=\"$BUILT_PRODUCTS_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/BuildInfo.plist\"\nmkdir -p \"$(dirname \"$PLIST\")\"\nprintf '<?xml version=\"1.0\" encoding=\"UTF-8\"?>\\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\\n<plist version=\"1.0\"><dict>\\n<key>GitCommit</key><string>%s</string>\\n<key>BuildDate</key><string>%s</string>\\n</dict></plist>\\n' \"$SHA\" \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\" > \"$PLIST\"\n";
+		};
+		E17592A6E92526124A2DB468 /* Generate BuildInfo */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Generate BuildInfo";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/BuildInfo.plist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "SHA=$(cd \"$SRCROOT\" && git rev-parse --short=6 HEAD 2>/dev/null || echo dev)\nPLIST=\"$BUILT_PRODUCTS_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/BuildInfo.plist\"\nmkdir -p \"$(dirname \"$PLIST\")\"\nprintf '<?xml version=\"1.0\" encoding=\"UTF-8\"?>\\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\\n<plist version=\"1.0\"><dict>\\n<key>GitCommit</key><string>%s</string>\\n<key>BuildDate</key><string>%s</string>\\n</dict></plist>\\n' \"$SHA\" \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\" > \"$PLIST\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0175841AC59FE52D5A770F81 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -684,6 +758,7 @@
 			files = (
 				057F1011AE9F8363E7F3102C /* AppGroup.swift in Sources */,
 				8486D190570C10EA8ECD9F5F /* BackgroundRefresh.swift in Sources */,
+				95915A526EA054D1F8C2C8A3 /* BuildInfo.swift in Sources */,
 				9DCBE8A5314F905331889456 /* CalendarStore.swift in Sources */,
 				2272C90E8A42B9038D48FF0E /* ContentView.swift in Sources */,
 				F35358D934B57C9BAEC84CD7 /* EmptyStateIllustration.swift in Sources */,
@@ -700,6 +775,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F29A76E6AA54D8D47E642CE /* AppGroup.swift in Sources */,
+				EB60C4E5EDEF9CB64099DB50 /* BuildInfo.swift in Sources */,
 				03EABB68B0082CA8420B0E07 /* CalendarStore.swift in Sources */,
 				78691F21F3E8D3A4B6E56F0E /* EmptyStateIllustration.swift in Sources */,
 				6E9EFA6841D68CE9C42E7D1A /* EventEntry.swift in Sources */,
@@ -721,6 +797,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CF3FC3C51796442F08B3BBB /* AppGroup.swift in Sources */,
+				75007885E1AE1777C4C9B4C0 /* BuildInfo.swift in Sources */,
 				DFFAD5CD240830F57B994286 /* CalendarStore.swift in Sources */,
 				7DBB79B536A52617D5860A26 /* EmptyStateIllustration.swift in Sources */,
 				E0ECAF4A6B6887AF0105615D /* EventEntry.swift in Sources */,
@@ -743,6 +820,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2CA294C7D279F15B8B2DA3A /* AppGroup.swift in Sources */,
+				05ABA80B34BC61ACF568898C /* BuildInfo.swift in Sources */,
 				C18178FDCD8BD257CED66381 /* CalendarStore.swift in Sources */,
 				4A0B350B3D5A6DFA86B28CB7 /* ComplicationWidget.swift in Sources */,
 				2DAB9566BDD4D426B8CE101A /* EmptyStateIllustration.swift in Sources */,
@@ -764,6 +842,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10BE7FC176F1B6CD9A709335 /* AppGroup.swift in Sources */,
+				2256B81E74129754B0BA9D23 /* BuildInfo.swift in Sources */,
 				80BEE7290510005B824EED8D /* CalendarStore.swift in Sources */,
 				5162D42573CD75AA7CDD51DD /* EmptyStateIllustration.swift in Sources */,
 				6086955D7B54B1450D5E87A5 /* EventEntry.swift in Sources */,
@@ -795,6 +874,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A403A54336902E0C4BC80F01 /* AppGroup.swift in Sources */,
+				E5747111BD018D42DE25FAB4 /* BuildInfo.swift in Sources */,
 				6DC7855A4AE0E998A3A8AE01 /* CalendarStore.swift in Sources */,
 				ED18850069D9C8ED6285EF2E /* EmptyStateIllustration.swift in Sources */,
 				31D7C3D6C232D046F6A699D9 /* EventEntry.swift in Sources */,
@@ -1082,11 +1162,12 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 859JWBWE5P;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1103,7 +1184,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.1.0;
+				MARKETING_VERSION = 2.1.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1151,11 +1232,12 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 859JWBWE5P;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1166,7 +1248,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.1.0;
+				MARKETING_VERSION = 2.1.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
