@@ -880,127 +880,127 @@
         }
       }
     },
-    "Grant Calendar Access": {
+    "Continue": {
       "extractionState": "manual",
       "localizations": {
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "السماح بالوصول إلى التقويم"
+            "value": "متابعة"
           }
         },
         "da": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tillad kalenderadgang"
+            "value": "Fortsæt"
           }
         },
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Kalenderzugriff erlauben"
+            "value": "Weiter"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Permitir acceso al calendario"
+            "value": "Continuar"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Autoriser l’accès au calendrier"
+            "value": "Continuer"
           }
         },
         "hi": {
           "stringUnit": {
             "state": "translated",
-            "value": "कैलेंडर एक्सेस दें"
+            "value": "जारी रखें"
           }
         },
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Izinkan Akses Kalender"
+            "value": "Lanjutkan"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Consenti accesso al calendario"
+            "value": "Continua"
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "カレンダーへのアクセスを許可"
+            "value": "続ける"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "캘린더 접근 허용"
+            "value": "계속"
           }
         },
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Agendatoegang toestaan"
+            "value": "Doorgaan"
           }
         },
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Zezwól na dostęp do kalendarza"
+            "value": "Kontynuuj"
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Permitir acesso ao calendário"
+            "value": "Continuar"
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Разрешить доступ к календарю"
+            "value": "Продолжить"
           }
         },
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tillåt kalenderåtkomst"
+            "value": "Fortsätt"
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "อนุญาตให้เข้าถึงปฏิทิน"
+            "value": "ดำเนินการต่อ"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Takvim Erişimine İzin Ver"
+            "value": "Devam Et"
           }
         },
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Cho phép truy cập lịch"
+            "value": "Tiếp tục"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "允许访问日历"
+            "value": "继续"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "允許取用行事曆"
+            "value": "繼續"
           }
         }
       }

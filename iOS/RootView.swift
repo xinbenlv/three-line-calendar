@@ -19,7 +19,7 @@ struct RootView: View {
                         Button {
                             Task { await grant() }
                         } label: {
-                            Text("Grant Calendar Access")
+                            Text("Continue")
                                 .frame(maxWidth: .infinity)
                         }
                         .buttonStyle(.borderedProminent)
