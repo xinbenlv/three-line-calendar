@@ -10,17 +10,16 @@ copies of these). This replaces the older plain screenshots/*.png upload.
 Reads credentials from .creds/asc.env (gitignored). Requires PyJWT + Pillow:
     pip install PyJWT cryptography Pillow
 
-Maps (in upload order per displayType — later files are additional screenshots,
-not replacements):
-    marketing/store/iphone.png      -> APP_IPHONE_67        (iOS version)
-    marketing/store/ipad.png        -> APP_IPAD_PRO_3GEN_129 (iOS version)
-    marketing/store/watch.png       -> APP_WATCH_ULTRA       (iOS version)
-    marketing/store/mac.png         -> APP_DESKTOP           (macOS version)
-    marketing/store/mac-widget.png  -> APP_DESKTOP           (macOS version, 2nd shot)
-Existing screenshots in each set are replaced. Uploads target the current
-*editable* appStoreVersion per platform (PREPARE_FOR_SUBMISSION / rejected
+Gallery (upload order per displayType = store display order; widget-first):
+    APP_IPHONE_67          <- iphone-widget, iphone-widget-dark, iphone (companion)
+    APP_IPAD_PRO_3GEN_129  <- ipad-widget, ipad (companion)
+    APP_WATCH_ULTRA        <- watch (ultra face), watch-modular, watch-app
+    APP_DESKTOP (macOS)    <- mac (app), mac-widget
+The first file in each displayType clears the set; the rest append. Uploads target
+the current *editable* appStoreVersion per platform (PREPARE_FOR_SUBMISSION / rejected
 states) rather than just the newest version, since a platform can have both a
-READY_FOR_SALE version and an editable one at the same time.
+READY_FOR_SALE version and an editable one at the same time (so if a platform's
+version is locked in review, its sets are simply skipped).
 """
 import os, re, sys, json, time, hashlib, socket, urllib.request, urllib.error
 import jwt
@@ -50,13 +49,22 @@ KEY = open(os.path.join(ROOT, ".creds", f"AuthKey_{KEY_ID}.p8")).read()
 BUNDLE = ENV.get("ZWF_APP_BUNDLE_ID", "im.zzn.apps.threelinecal")
 BASE = "https://api.appstoreconnect.apple.com"
 
-# ordered list of (filename, ASC platform, displayType, accepted (w,h) list; first is the resize target)
+# ordered list of (filename, ASC platform, displayType, accepted (w,h) list; first is the
+# resize target). Order within a displayType IS the store gallery order — lead with the
+# widget (the core feature), companion-app views last. Files consecutive in a displayType
+# accumulate (the first clears the set, the rest append). See scripts/make_widget_store_shots.py
+# for how the iPhone/iPad widget shots are produced.
 SPECS = [
-    ("iphone.png",     "IOS",    "APP_IPHONE_67",           [(1320, 2868), (1290, 2796)]),
-    ("ipad.png",       "IOS",    "APP_IPAD_PRO_3GEN_129",   [(2064, 2752), (2048, 2732)]),
-    ("watch.png",      "IOS",    "APP_WATCH_ULTRA",         [(422, 514), (410, 502)]),
-    ("mac.png",        "MAC_OS", "APP_DESKTOP",             [(2560, 1600), (1280, 800)]),
-    ("mac-widget.png", "MAC_OS", "APP_DESKTOP",             [(2560, 1600), (1280, 800)]),
+    ("iphone-widget.png",      "IOS",    "APP_IPHONE_67",         [(1320, 2868), (1290, 2796)]),
+    ("iphone-widget-dark.png", "IOS",    "APP_IPHONE_67",         [(1320, 2868), (1290, 2796)]),
+    ("iphone.png",             "IOS",    "APP_IPHONE_67",         [(1320, 2868), (1290, 2796)]),
+    ("ipad-widget.png",        "IOS",    "APP_IPAD_PRO_3GEN_129", [(2064, 2752), (2048, 2732)]),
+    ("ipad.png",               "IOS",    "APP_IPAD_PRO_3GEN_129", [(2064, 2752), (2048, 2732)]),
+    ("watch.png",              "IOS",    "APP_WATCH_ULTRA",       [(422, 514), (410, 502)]),
+    ("watch-modular.png",      "IOS",    "APP_WATCH_ULTRA",       [(422, 514), (410, 502)]),
+    ("watch-app.png",          "IOS",    "APP_WATCH_ULTRA",       [(422, 514), (410, 502)]),
+    ("mac.png",                "MAC_OS", "APP_DESKTOP",           [(2560, 1600), (1280, 800)]),
+    ("mac-widget.png",         "MAC_OS", "APP_DESKTOP",           [(2560, 1600), (1280, 800)]),
 ]
 
 
