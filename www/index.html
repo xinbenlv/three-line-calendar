@@ -66,7 +66,9 @@
       .app-store-title { display:block; font-size:20px; font-weight:600; line-height:1.05; letter-spacing:-.04em; }
       .soon-badge { position:absolute; top:-11px; right:-35px; padding:4px 8px; color:#7a3e00; background:#ffca5c; border:2px solid #fff; border-radius:980px; box-shadow:0 2px 6px rgba(0,0,0,.12); font-size:10px; font-weight:700; letter-spacing:.02em; text-transform:uppercase; }
       .soon-badge[hidden] { display:none; }
-      .hero-actions { display:flex; justify-content:center; gap:26px; margin:0 0 57px; font-size:19px; }
+      .hero-actions { display:flex; justify-content:center; gap:26px; margin:0 0 34px; font-size:19px; }
+      .hero-ph { display:inline-block; margin:0 0 46px; line-height:0; }
+      .hero-ph img { width:250px; height:54px; }
       .link { color:var(--blue); text-decoration:none; }
       .link:hover { color:var(--blue-hover); text-decoration:underline; text-underline-offset:4px; }
       .hero-gallery { position:relative; width:min(990px,100%); height:435px; margin:0 auto; }
@@ -131,7 +133,7 @@
       @media (max-width:720px) {
         .shell { width:min(100% - 32px,560px); }
         .nav-links { gap:14px; } .nav-links a:not(.nav-cta) { display:none; }
-        .hero { padding-top:61px; } .store-cta { margin-top:27px; } .soon-badge { right:-20px; } .hero-actions { margin-bottom:39px; font-size:17px; }
+        .hero { padding-top:61px; } .store-cta { margin-top:27px; } .soon-badge { right:-20px; } .hero-actions { margin-bottom:22px; font-size:17px; } .hero-ph { margin-bottom:30px; }
         .hero-gallery { height:325px; } .watch-shot { left:4%; width:185px; } .phone-shot { right:1%; bottom:-294px; width:285px; border-radius:31px; }
         .intro,.platforms { padding:84px 0; } .intro p,.platforms > .shell > p,.feature-copy p,.privacy p,.promise-lead { font-size:19px; }
         .promise { padding:0 0 84px; } .promise-panel { padding:62px 22px; } .promise-grid { grid-template-columns:1fr; } .promise-item { min-height:unset; text-align:center; }
@@ -156,6 +158,7 @@
           <p class="hero-copy">A simple view of the next three things on your calendar—right on your Apple Watch, iPhone, iPad, and Mac.</p>
           <div class="store-cta"><a id="app-store-link" class="app-store-button" href="https://apps.apple.com/us/search?term=im.zzn.apps.threelinecal" target="_blank" rel="noopener" data-bundle-id="im.zzn.apps.threelinecal" aria-describedby="app-store-status"><span class="app-store-mark" aria-hidden="true"></span><span><span class="app-store-overline">Download on the</span><span class="app-store-title">App Store</span></span></a><span id="app-store-status" class="soon-badge">Coming soon</span></div>
           <div class="hero-actions"><a class="link" href="#screens">See it in action&nbsp; ›</a><a class="link" href="https://github.com/xinbenlv/three-line-calendar">Explore the source&nbsp; ↗</a></div>
+          <a class="hero-ph" href="https://www.producthunt.com/products/3-line-calendar?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-3-line-calendar" target="_blank" rel="noopener noreferrer"><img alt="3-Line Calendar - Your next 3 calendar events on Apple Watch, iPhone &amp; Mac | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1202457&amp;theme=light&amp;t=1784637436230" /></a>
           <div class="hero-gallery" aria-label="3-Line Calendar on Apple Watch and iPhone"><img class="watch-shot" src="screenshots/watch-face-ultra.png" alt="Three upcoming events displayed on an Apple Watch face" /><img class="phone-shot" src="screenshots/iphone-companion.png" alt="Three upcoming events displayed in the iPhone app" /></div>
         </div>
       </section>
